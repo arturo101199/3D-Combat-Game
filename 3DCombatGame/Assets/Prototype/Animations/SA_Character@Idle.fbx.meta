@@ -1,0 +1,493 @@
+fileFormatVersion: 2
+guid: 802a5cd842950e24d9d0a697ed825a0d
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: Idle
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 399
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: SA_Character@Idle(Clone)
+      parentName: 
+      position: {x: 0.13357913, y: -0.023815537, z: 0.0552958}
+      rotation: {x: -0.031190917, y: 0.026187342, z: 0.0705197, w: 0.99667865}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_AirportSecurity
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_AirportWorker
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Bellhop
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Businessman
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Cheerleader
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Clown
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Farmer
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_FarmersDaughter
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Firefighter
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_FootballPlayer
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Grandma
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Hobo
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Industrial
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Mechanic
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Mountie
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Pilot
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Pimp
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Prisoner
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Prostitute
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Roadworker
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Robber
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Runner
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Santa
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Shopkeeper
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Soldier
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Streetman
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Tourist
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Zombie_Trucker
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Biohazard
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Businessman
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Doctor
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Farmer
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_FemaleHero
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_FemalePyro
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_FemaleSoldier
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_FemaleTrenchcoat
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Hazard
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_InjuredMan
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Male_01
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Male_02
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Male_03
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Male_04
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_MaleHunter
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_HoodedMan
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_MaleTrenchcoat
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_OldMan
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Prisoner
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_RoadWorker
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Scout
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SA_Char_Survivor_Sheriff
+      parentName: SA_Character@Idle(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips_jnt
+      parentName: SA_Character@Idle(Clone)
+      position: {x: 3.6272008e-16, y: 1.0449876, z: -6.2692085e-18}
+      rotation: {x: 0.0000000037252907, y: 0.0000000018626454, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1.0000129, y: 1.0000234, z: 1}
+    - name: UpperLeg_Left_jnt
+      parentName: Hips_jnt
+      position: {x: 0.12891708, y: -0.221588, z: -0.017863873}
+      rotation: {x: -0.011695475, y: -0.00040234663, z: 0.99993145, w: 0.0004615486}
+      scale: {x: 1.0000355, y: 1.0000346, z: 0.999999}
+    - name: LowerLeg_Left_jnt
+      parentName: UpperLeg_Left_jnt
+      position: {x: -0.37452164, y: 7.105427e-17, z: 1.110223e-18}
+      rotation: {x: -0.7075903, y: 0.0000065574586, z: -0.0000061588353, w: 0.7066231}
+      scale: {x: 1.000038, y: 1.0000476, z: 1.0000356}
+    - name: Foot_Left_jnt
+      parentName: LowerLeg_Left_jnt
+      position: {x: -0.38874373, y: -1.7208457e-17, z: 7.342464e-12}
+      rotation: {x: 0.50674546, y: 0.49426782, z: -0.50519735, w: 0.49364364}
+      scale: {x: 0.999999, y: 1.000001, z: 0.99998116}
+    - name: Toe_Left_jnt
+      parentName: Foot_Left_jnt
+      position: {x: -6.7241143e-12, y: -0.1497335, z: 0.21969701}
+      rotation: {x: 0.00000005960463, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000026, y: 1.0000013, z: 0.9999911}
+    - name: UpperLeg_Right_jnt
+      parentName: Hips_jnt
+      position: {x: 0.12891664, y: 0.22158809, z: 0.01786388}
+      rotation: {x: 0.9999078, y: 0.00058084726, z: -0.011708391, w: 0.0068581295}
+      scale: {x: 1.0000132, y: 1.0000036, z: 1.0000408}
+    - name: LowerLeg_Right_jnt
+      parentName: UpperLeg_Right_jnt
+      position: {x: 0.374522, y: 3.1974422e-16, z: -1.0987456e-12}
+      rotation: {x: -0.70410997, y: -0.000030985244, z: 0.000051746138, w: 0.71009105}
+      scale: {x: 1.0000547, y: 1.0000788, z: 1.0000905}
+    - name: Foot_Right_jnt
+      parentName: LowerLeg_Right_jnt
+      position: {x: 0.388744, y: 8.1971365e-12, z: -3.69074e-11}
+      rotation: {x: 0.49583414, y: 0.5067274, z: -0.4927325, w: 0.5045696}
+      scale: {x: 0.9999967, y: 1.0000106, z: 1.0000194}
+    - name: Toe_Right_jnt
+      parentName: Foot_Right_jnt
+      position: {x: -0.000003490797, y: 0.1497333, z: -0.21969701}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.000003, y: 1.0000198, z: 1.0000119}
+    - name: Spine_jnt
+      parentName: Hips_jnt
+      position: {x: -0.019048661, y: -5.158743e-16, z: 6.2692085e-18}
+      rotation: {x: -0, y: -0.0000000052683564, z: 6.938895e-18, w: 1}
+      scale: {x: 0.9999891, y: 0.9999963, z: 1}
+    - name: Spine_jnt1
+      parentName: Spine_jnt
+      position: {x: -0.3360725, y: 3.7261742e-16, z: 2.3643465e-18}
+      rotation: {x: -0.0000000026341782, y: 0.0000000026341782, z: -0, w: 1}
+      scale: {x: 0.9999955, y: 0.99999493, z: 1}
+    - name: Chest_jnt
+      parentName: Spine_jnt1
+      position: {x: -0.33425274, y: -1.2999511e-15, z: -2.3643465e-18}
+      rotation: {x: -0.0000000013170891, y: 0.0000000013170891, z: 8.271806e-25, w: 1}
+      scale: {x: 0.99998736, y: 0.99999505, z: 1}
+    - name: Shoulder_Right_jnt
+      parentName: Chest_jnt
+      position: {x: -0.21910845, y: 0.27274165, z: -0.0076430403}
+      rotation: {x: -0.7071068, y: 0.7071068, z: 0.0000000052683564, w: 0.0000000037252907}
+      scale: {x: 1.0000414, y: 1.0000157, z: 1.0000603}
+    - name: Arm_Right_jnt
+      parentName: Shoulder_Right_jnt
+      position: {x: -0.29249033, y: 1.9895197e-15, z: -0.0076430403}
+      rotation: {x: -0.000000007450581, y: -1.1102229e-16, z: -0, w: 1}
+      scale: {x: 1.0000443, y: 1.0000024, z: 1.0000378}
+    - name: Forearm_Right_jnt
+      parentName: Arm_Right_jnt
+      position: {x: -0.47118998, y: -2.8421708e-15, z: -6.4665146e-18}
+      rotation: {x: 0.000000011175871, y: 0.0000000018626454, z: 1.387779e-17, w: 1}
+      scale: {x: 1.0000426, y: 1.0000051, z: 1.0000385}
+    - name: Hand_Right_jnt
+      parentName: Forearm_Right_jnt
+      position: {x: -0.4403, y: -4.8316907e-15, z: -6.0425866e-18}
+      rotation: {x: 3.469448e-18, y: -1, z: -0.0000000018626449, w: 0}
+      scale: {x: 1.0000077, y: 1.0000001, z: 1.0000027}
+    - name: Shoulder_Left_jnt
+      parentName: Chest_jnt
+      position: {x: -0.21910845, y: -0.27274165, z: 0.0076430403}
+      rotation: {x: -0.7071068, y: 0.7071068, z: -0.000000006585446, w: 0.0000000024082016}
+      scale: {x: 1.0000417, y: 1.0000157, z: 1.0000604}
+    - name: Arm_Left_jnt
+      parentName: Shoulder_Left_jnt
+      position: {x: 0.29249033, y: 2.5579537e-15, z: 0.0076430403}
+      rotation: {x: -1, y: -0, z: -0.000000008149073, w: -0.0000000053551057}
+      scale: {x: 1.000045, y: 1.0000207, z: 1.0000027}
+    - name: Forearm_Left_jnt
+      parentName: Arm_Left_jnt
+      position: {x: 0.471188, y: -2.842171e-16, z: 5.1165055e-17}
+      rotation: {x: -3.4924635e-10, y: -4.6566123e-10, z: -5.339698e-18, w: 1}
+      scale: {x: 1.0000441, y: 1.0000409, z: 1.0000037}
+    - name: Hand_Left_jnt
+      parentName: Forearm_Left_jnt
+      position: {x: 0.4403, y: 0, z: 4.781051e-17}
+      rotation: {x: -3.550763e-18, y: -1, z: 1.1641442e-10, w: -4.656621e-10}
+      scale: {x: 1.0000079, y: 1.0000379, z: 1.0000395}
+    - name: Neck_jnt
+      parentName: Chest_jnt
+      position: {x: -0.22895189, y: 4.2216863e-16, z: 5.667284e-19}
+      rotation: {x: 0.0000000013170891, y: -0.0000000013170891, z: -8.271806e-25,
+        w: 1}
+      scale: {x: 0.99998724, y: 0.9999953, z: 1}
+    - name: Head_jnt
+      parentName: Neck_jnt
+      position: {x: -0.08167417, y: -5.9802247e-16, z: -5.667284e-19}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999907, y: 0.99999803, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
