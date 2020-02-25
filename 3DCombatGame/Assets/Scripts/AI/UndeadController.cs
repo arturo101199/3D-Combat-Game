@@ -12,6 +12,7 @@ public class UndeadController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     Animator animator;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class UndeadController : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform; //Provisional. Habrá que almacenar la ubicación del jugador con ScripObj.
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class UndeadController : MonoBehaviour
 
         if(distance <= viewRadius)
         {
+            agent.enabled = true;
             animator.SetBool("isWalking", true);
             agent.SetDestination(target.position);
 
@@ -42,6 +45,7 @@ public class UndeadController : MonoBehaviour
         else
         {
             animator.SetBool("isWalking", false);
+            agent.enabled = false;
         }
     }
 
