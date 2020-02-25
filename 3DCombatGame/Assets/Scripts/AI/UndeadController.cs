@@ -12,20 +12,19 @@ public class UndeadController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     Animator animator;
-    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform; //Provisional. Habrá que almacenar la ubicación del jugador con ScripObj.
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform; //Provisional. Habrá que almacenar la ubicación del jugador con ScripObj.
+
         float distance = Vector3.Distance(target.position, transform.position); //Poco eficiente.
 
         if(distance <= viewRadius)
@@ -37,9 +36,13 @@ public class UndeadController : MonoBehaviour
             if(distance <= agent.stoppingDistance)
             {
                 //Realizar ataque normal
-                //----------------------
+                animator.SetBool("attackPlayer", true);
                 //Mirar al jugador
                 FaceTarget();
+            }
+            else
+            {
+                animator.SetBool("attackPlayer", false);
             }
         }
         else
