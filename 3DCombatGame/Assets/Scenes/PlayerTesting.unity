@@ -121,6 +121,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &213879866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2836736039436623705, guid: 10cc57e359c7d4448a25228e21f915de,
+    type: 3}
+  m_PrefabInstance: {fileID: 6088850701023815958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &213879869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213879866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8d9783325af474f8df1c48209c3840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &328006374
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +365,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fba2c2b99e11c5a46bbaa77e1d5b1b7e, type: 2}
+  - {fileID: 2100000, guid: 5c07bbf0d8f98a944a32bf46cd6b72dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -390,6 +408,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1935786587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6088850700146744504, guid: 10cc57e359c7d4448a25228e21f915de,
+    type: 3}
+  m_PrefabInstance: {fileID: 6088850701023815958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6088850701023815958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -397,6 +421,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[0].radius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[0].offset.z
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[0].attackRoot
+      value: 
+      objectReference: {fileID: 1935786587}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[1].radius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[1].offset.z
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[1].attackRoot
+      value: 
+      objectReference: {fileID: 1935786587}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[2].radius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[2].attackRoot
+      value: 
+      objectReference: {fileID: 1935786587}
+    - target: {fileID: 733412566338974606, guid: 10cc57e359c7d4448a25228e21f915de,
+        type: 3}
+      propertyPath: attackPoints.Array.data[2].offset.z
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6088850700460762688, guid: 10cc57e359c7d4448a25228e21f915de,
         type: 3}
       propertyPath: m_LocalPosition.x
