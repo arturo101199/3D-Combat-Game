@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 3
-  invulnerabiltyTime: 0.5
+  invulnerabiltyTime: 0.25
 --- !u!54 &1316353343
 Rigidbody:
   m_ObjectHideFlags: 0
