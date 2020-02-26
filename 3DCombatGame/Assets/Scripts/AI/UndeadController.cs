@@ -9,15 +9,22 @@ public class UndeadController : MonoBehaviour
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
 
+    bool attacking = false;
+
     Transform target;
     NavMeshAgent agent;
     Animator animator;
+
+    MeleeWeapon weapon;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        weapon = GetComponentInChildren<MeleeWeapon>();
+
+        weapon.SetOwner(this.gameObject);
     }
 
     // Update is called once per frame
@@ -29,21 +36,22 @@ public class UndeadController : MonoBehaviour
 
         if(distance <= viewRadius)
         {
-            agent.enabled = true;
-            animator.SetBool("isWalking", true);
-            agent.SetDestination(target.position);
-
-            if(distance <= agent.stoppingDistance)
+            //Mirar al jugador (si no está atacando)
+            FaceTarget();
+            if (!attacking)
+                agent.enabled = true;
+            if (distance <= agent.stoppingDistance)
             {
                 //Realizar ataque normal
                 animator.SetBool("attackPlayer", true);
-                //Mirar al jugador
-                FaceTarget();
             }
             else
             {
                 animator.SetBool("attackPlayer", false);
-            }
+                animator.SetBool("isWalking", true);
+                if(!attacking)
+                    agent.SetDestination(target.position);
+            }          
         }
         else
         {
@@ -54,10 +62,35 @@ public class UndeadController : MonoBehaviour
 
     void FaceTarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        if (!attacking)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
 
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * smoothRotation);
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * smoothRotation);
+        }
+    }
+
+    public void BeginAttack()
+    {
+        weapon.BeginAttack();
+    }
+
+    public void EndAttack()
+    {
+        weapon.EndAttack();
+    }
+
+    public void animationStarted()
+    {
+        agent.enabled = false;
+        attacking = true;
+    }
+
+    public void animationEnded()
+    {
+        agent.enabled = true;
+        attacking = false;
     }
 
     void OnDrawGizmosSelected()
