@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     
 
     public MeleeWeapon meleeWeapon;
+    public BoolValue isRunningValue;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
 
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
         /*timer += Time.unscaledDeltaTime;
         if (timer > 0.05f)
             Time.timeScale = 1;*/
+
+        isRunningValue.value = isRunning;
 
         animator.ResetTrigger("Attack");
         animator.ResetTrigger("Dash");
@@ -142,11 +145,17 @@ public class PlayerController : MonoBehaviour
     {
         if (playerInput.GetRunInput())
         {
-            isRunning = true;
-            if (runSpeed - currentSpeed > 0.01f)
-                currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * 3f);
-            else
-                currentSpeed = runSpeed;
+            if (movement.magnitude / walkSpeed > 0.8f)
+            {
+                isRunning = true;
+                if (runSpeed - currentSpeed > 0.01f)
+                    currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * 3f);
+                else
+                    currentSpeed = runSpeed;
+            }
+            else if (movement.magnitude / runSpeed <= 0.5f)
+                isRunning = false;
+
         }
         else
         {

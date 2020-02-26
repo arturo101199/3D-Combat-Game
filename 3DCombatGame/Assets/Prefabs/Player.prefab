@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141351143449131695}
+  - component: {fileID: 1521417412}
   m_Layer: 0
   m_Name: HeadTarget
   m_TagString: Untagged
@@ -61,6 +62,19 @@ Transform:
   m_Father: {fileID: 6088850700460762688}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1521417412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545419703376152164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f6762a608f78241bab315c4bccd472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToTrack: {fileID: 11400000, guid: 37c75b4eba17a2146b74f1bbae536539, type: 2}
 --- !u!1 &6088850700146744507
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +145,7 @@ GameObject:
   - component: {fileID: 6088850700460762689}
   - component: {fileID: 6541955862763936768}
   - component: {fileID: 2902062164210807675}
+  - component: {fileID: 1424102388}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -198,7 +213,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 9.8
   meleeWeapon: {fileID: 733412566338974606}
-  speed: 5
+  isRunningValue: {fileID: 11400000, guid: 4cf497d7fc359a4429764101b169dfb6, type: 2}
+  walkSpeed: 5
+  runSpeed: 10
+--- !u!114 &1424102388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088850700460762691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f6762a608f78241bab315c4bccd472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToTrack: {fileID: 11400000, guid: 4be2929a4e3e64c439bf7b0afa13216e, type: 2}
 --- !u!1001 &1834782546631946887
 PrefabInstance:
   m_ObjectHideFlags: 0
