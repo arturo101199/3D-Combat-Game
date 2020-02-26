@@ -15,13 +15,16 @@ public class PlayerController : MonoBehaviour
     Vector3 cameraZAxis;
     Vector3 movement;
     float fallVelocity;
+    float currentSpeed;
     bool inCombo;
     bool inDash;
+    bool isRunning;
     //float timer;
     
 
     public MeleeWeapon meleeWeapon;
-    public float speed = 5f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 10f;
 
     void Awake()
     {
@@ -44,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
         camDirection();
 
+        Run();
+
         Move();
 
         SetGravity();
@@ -60,14 +65,17 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         if (inDash)
+        {
+            movement = Vector3.ClampMagnitude(movement, 0.75f * runSpeed); //this is for not doing a longer dash when you are on runSpeed
             return;
+        }
         if (!inCombo)
         {
             moveInput = playerInput.GetMoveInput();
 
             movement = moveInput.x * cameraXAxis + moveInput.z * cameraZAxis;
-            movement *= speed;
-            animator.SetFloat("Speed", (movement/speed).magnitude);
+            movement *= currentSpeed;
+            animator.SetFloat("Speed", (movement/runSpeed).magnitude);
 
             charctrl.transform.LookAt(charctrl.transform.position + movement);
         }
@@ -123,11 +131,32 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (playerInput.GetDashInput() && movement.magnitude/speed > 0.8f)
+        if (playerInput.GetDashInput() && movement.magnitude/walkSpeed > 0.8f)
         {
             animator.SetTrigger("Dash");
         }
 
+    }
+
+    void Run()
+    {
+        if (playerInput.GetRunInput())
+        {
+            isRunning = true;
+            if (runSpeed - currentSpeed > 0.01f)
+                currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * 3f);
+            else
+                currentSpeed = runSpeed;
+        }
+        else
+        {
+            isRunning = false;
+            if (currentSpeed - walkSpeed > 0.01f)
+                currentSpeed = Mathf.Lerp(currentSpeed, walkSpeed, Time.deltaTime * 3f);
+            else
+                currentSpeed = walkSpeed;
+        }
+        animator.SetBool("IsRunning", isRunning);
     }
 
     public void StartAttackCollision()

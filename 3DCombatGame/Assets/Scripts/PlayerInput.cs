@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         moveInput.Set(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        run = Input.GetButtonDown("Jump");
+        run = Input.GetButton("Run");
         attack = Input.GetButton("Fire1");
         dash = Input.GetButtonDown("Fire3");
     }
