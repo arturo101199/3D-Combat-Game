@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    //public GameObject shot;
+    public TransformValue CameraTransform;
+    public GameObject shotPrefab;
+    public float shotSpeed = 10f;
 
     Vector3 cameraZAxis;
 
     // Update is called once per frame
     void Update()
     {
-        float y = Camera.main.transform.rotation.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0, y, 0);
+        float y = CameraTransform.value.rotation.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0f, y, 0f);
         if (Input.GetButtonDown("Fire2"))
         {
             camDirection();
-            /*shot _shot = Instantiate(shot, transform.position, transform.rotation).GetComponent<shot>();
-            _shot.SetVelocity(transform.forward);*/
+            Shot shot = Instantiate(shotPrefab, transform.position, transform.rotation).GetComponent<Shot>();
+            shot.SetVelocity(transform.forward, shotSpeed);
         }
     }
 
     void camDirection()
     {
         cameraZAxis = Camera.main.transform.forward;
-        Debug.Log(cameraZAxis);
         cameraZAxis.y = 0f;
 
         cameraZAxis = cameraZAxis.normalized;
