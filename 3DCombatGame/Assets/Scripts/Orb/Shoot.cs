@@ -18,8 +18,8 @@ public class Shoot : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             camDirection();
-            Shot shot = Instantiate(shotPrefab, transform.position, transform.rotation).GetComponent<Shot>();
-            shot.SetVelocity(transform.forward, shotSpeed);
+            /*Shot shot = */Instantiate(shotPrefab, transform.position, transform.rotation)/*.GetComponent<Shot>()*/;
+            //shot.SetVelocity(transform.forward, shotSpeed);
         }
     }
 

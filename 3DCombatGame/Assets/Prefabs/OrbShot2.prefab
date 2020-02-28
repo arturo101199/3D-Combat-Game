@@ -13917,7 +13917,7 @@ GameObject:
   - component: {fileID: 4884733473879942}
   - component: {fileID: 114992862451545696}
   m_Layer: 0
-  m_Name: Effect6
+  m_Name: OrbShot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

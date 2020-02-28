@@ -5,6 +5,8 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     Rigidbody rb;
+    
+    public GameObject effect;
 
     void Awake()
     {
@@ -14,5 +16,6 @@ public class Shot : MonoBehaviour
     public void SetVelocity(Vector3 velocity, float speed)
     {
         rb.velocity = velocity * speed;
+        //Instantiate(effect, transform.position, transform.rotation, this.transform);
     }
 }
