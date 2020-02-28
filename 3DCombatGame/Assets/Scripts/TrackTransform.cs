@@ -6,9 +6,13 @@ public class TrackTransform : MonoBehaviour
 {
     public TransformValue transformToTrack;
 
+    void Awake()
+    {
+        transformToTrack.SetValue(transform);
+    }
     // Update is called once per frame
     void Update()
     {
-        transformToTrack.value = transform;
+        transformToTrack.SetValue(transform);
     }
 }

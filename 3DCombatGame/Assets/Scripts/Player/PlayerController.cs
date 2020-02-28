@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         if (inDash)
         {
-            movement = Vector3.ClampMagnitude(movement, 0.75f * runSpeed); //this is for not doing a longer dash when you are on runSpeed
+            movement = Vector3.ClampMagnitude(movement, 0.75f * runSpeed);
             return;
         }
         if (!inCombo)

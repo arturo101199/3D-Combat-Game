@@ -5,5 +5,14 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TransformValue : ScriptableObject
 {
-    public Transform value;
+    Transform value;
+
+    public Transform GetValue()
+    {
+        return value;
+    }
+    public void SetValue(Transform value)
+    {
+        this.value = value;
+    }
 }

@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float y = CameraTransform.value.rotation.eulerAngles.y;
+        float y = CameraTransform.GetValue().rotation.eulerAngles.y;
         transform.rotation = Quaternion.Euler(0f, y, 0f);
         if (Input.GetButtonDown("Fire2"))
         {

@@ -11,10 +11,10 @@ public class OrbPositionAndRotation : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = targetPositionTransform.value.position;
+        transform.position = targetPositionTransform.GetValue().position;
 
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetPositionTransform.value.rotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0f, targetRotationTransform.value.rotation.eulerAngles.y, 0f);
+        transform.rotation = Quaternion.Euler(0f, targetRotationTransform.GetValue().rotation.eulerAngles.y, 0f);
 
     }
 }
