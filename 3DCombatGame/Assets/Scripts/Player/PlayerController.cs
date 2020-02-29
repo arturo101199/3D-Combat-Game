@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public BoolValue isRunningValue;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
+    public float turnSpeed = 10f;
 
     void Awake()
     {
@@ -65,6 +66,8 @@ public class PlayerController : MonoBehaviour
         charctrl.Move(movement * Time.deltaTime);
     }
 
+    Vector3 previousMovement;
+
     void Move()
     {
         if (inDash)
@@ -80,7 +83,12 @@ public class PlayerController : MonoBehaviour
             movement *= currentSpeed;
             animator.SetFloat("Speed", (movement/runSpeed).magnitude);
 
-            charctrl.transform.LookAt(charctrl.transform.position + movement);
+
+            //charctrl.transform.LookAt(charctrl.transform.position + movement);
+            if (movement.magnitude / currentSpeed > 0.1f)
+                previousMovement = movement;
+
+            charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
         }
 
         else
@@ -96,8 +104,6 @@ public class PlayerController : MonoBehaviour
         cameraZAxis.y = 0f;
         cameraXAxis.y = 0f;
 
-        cameraZAxis = cameraZAxis.normalized;
-        cameraXAxis = cameraXAxis.normalized;
     }
 
     void SetGravity()
@@ -128,6 +134,9 @@ public class PlayerController : MonoBehaviour
     {
         if (playerInput.GetAttackInput())
         {
+
+            SetOrientationDirectly();
+
             animator.SetTrigger("Attack");
         }
     }
@@ -136,9 +145,17 @@ public class PlayerController : MonoBehaviour
     {
         if (playerInput.GetDashInput() && movement.magnitude/walkSpeed > 0.8f)
         {
+            SetOrientationDirectly();
             animator.SetTrigger("Dash");
         }
 
+    }
+
+    void SetOrientationDirectly()
+    {
+        Vector3 direction = new Vector3(movement.x, 0f, movement.z);
+        if (direction != Vector3.zero)
+            charctrl.transform.rotation = Quaternion.LookRotation(direction);
     }
 
     void Run()
@@ -183,13 +200,11 @@ public class PlayerController : MonoBehaviour
     public void BeginCombo()
     {
         inCombo = true;
-        Debug.Log("Begin Combo");
     }
 
     public void EndCombo()
     {
         inCombo = false;
-        Debug.Log("End Combo");
     }
 
     public void BeginDash()
