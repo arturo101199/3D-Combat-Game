@@ -12,6 +12,7 @@ public class UndeadController : MonoBehaviour
     float currentSpeed;
 
     bool attacking = false;
+    public bool following = false;
 
     Transform target;
     NavMeshAgent agent;
@@ -40,6 +41,7 @@ public class UndeadController : MonoBehaviour
 
         if(distance <= viewRadius)
         {
+            following = true;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
             if (!attacking)
@@ -60,10 +62,11 @@ public class UndeadController : MonoBehaviour
         }
         else
         {
+            following = false;
             currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
             animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
             //animator.SetBool("isWalking", false);
-            agent.enabled = false;
+            //agent.enabled = false;
         }
     }
 
