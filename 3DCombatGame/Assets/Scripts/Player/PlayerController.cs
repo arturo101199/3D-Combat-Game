@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     bool inCombo;
     bool inDash;
     bool isRunning;
+    bool inBetweenCombos;
     //float timer;
     
 
@@ -67,6 +68,7 @@ public class PlayerController : MonoBehaviour
     }
 
     Vector3 previousMovement;
+    Vector3 auxMovement;
 
     void Move()
     {
@@ -75,26 +77,35 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.ClampMagnitude(movement, 0.75f * runSpeed);
             return;
         }
+
+        moveInput = playerInput.GetMoveInput();
+
+        auxMovement = moveInput.x * cameraXAxis + moveInput.z * cameraZAxis;
+        auxMovement *= currentSpeed;
+        if (inBetweenCombos)
+        {
+            Debug.Log(inBetweenCombos);
+            if (auxMovement.magnitude / currentSpeed > 0.1f)
+                previousMovement = auxMovement;
+        }
         if (!inCombo)
         {
-            moveInput = playerInput.GetMoveInput();
+            movement = auxMovement;
 
-            movement = moveInput.x * cameraXAxis + moveInput.z * cameraZAxis;
-            movement *= currentSpeed;
-            animator.SetFloat("Speed", (movement/runSpeed).magnitude);
+            animator.SetFloat("Speed", (movement / runSpeed).magnitude);
 
-
-            //charctrl.transform.LookAt(charctrl.transform.position + movement);
             if (movement.magnitude / currentSpeed > 0.1f)
                 previousMovement = movement;
 
-            charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
+            //charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
         }
 
         else
         {
             movement = Vector3.zero;
         }
+
+        charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
     }
     void camDirection()
     {
@@ -215,5 +226,15 @@ public class PlayerController : MonoBehaviour
     public void EndDash()
     {
         inDash = false;
+    }
+    
+    public void InBetweenCombos()
+    {
+        inBetweenCombos = true;
+    }
+    
+    public void NotInBetweenCombos()
+    {
+        inBetweenCombos = false;
     }
 }

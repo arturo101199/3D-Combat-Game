@@ -40,4 +40,14 @@ public class AnimationEvents : MonoBehaviour
     {
         playerController.EndDash();
     }
+
+    public void InBetweenCombos()
+    {
+        playerController.InBetweenCombos();
+    }
+
+    public void NotInBetweenCombos()
+    {
+        playerController.NotInBetweenCombos();
+    }
 }
