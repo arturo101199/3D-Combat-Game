@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         auxMovement *= currentSpeed;
         if (inBetweenCombos)
         {
-            if (auxMovement.sqrMagnitude / (currentSpeed * currentSpeed) > 0.1f)
+            if (auxMovement.magnitude / currentSpeed > 0.1f)
                 previousMovement = auxMovement;
         }
         if (!inCombo)
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
             animator.SetFloat("Speed", (movement / runSpeed).magnitude);
 
-            if (movement.sqrMagnitude / (currentSpeed * currentSpeed) > 0.1f)
+            if (movement.magnitude / currentSpeed > 0.1f)
                 previousMovement = movement;
 
             //charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
