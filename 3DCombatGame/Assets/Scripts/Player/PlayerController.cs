@@ -84,8 +84,7 @@ public class PlayerController : MonoBehaviour
         auxMovement *= currentSpeed;
         if (inBetweenCombos)
         {
-            Debug.Log(inBetweenCombos);
-            if (auxMovement.magnitude / currentSpeed > 0.1f)
+            if (auxMovement.sqrMagnitude / (currentSpeed * currentSpeed) > 0.1f)
                 previousMovement = auxMovement;
         }
         if (!inCombo)
@@ -94,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
             animator.SetFloat("Speed", (movement / runSpeed).magnitude);
 
-            if (movement.magnitude / currentSpeed > 0.1f)
+            if (movement.sqrMagnitude / (currentSpeed * currentSpeed) > 0.1f)
                 previousMovement = movement;
 
             //charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
@@ -105,7 +104,8 @@ public class PlayerController : MonoBehaviour
             movement = Vector3.zero;
         }
 
-        charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
+        if(previousMovement != Vector3.zero)
+            charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
     }
     void camDirection()
     {

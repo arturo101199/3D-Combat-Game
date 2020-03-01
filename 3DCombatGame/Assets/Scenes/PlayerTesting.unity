@@ -220,25 +220,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: 200, z: 0}
---- !u!1 &593510921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8436900694651953678, guid: dc77ee934160bdd449dffe36dcc44625,
-    type: 3}
-  m_PrefabInstance: {fileID: 8436900694886290134}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &593510926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593510921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f6762a608f78241bab315c4bccd472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transformToTrack: {fileID: 11400000, guid: 33e81c4129dccf54ebdd39a24ac3caff, type: 2}
 --- !u!4 &798257572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6088850700460762688, guid: 10cc57e359c7d4448a25228e21f915de,
@@ -564,17 +545,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5712809492476911273, guid: 240cee3859aeb384382b50baa302e44c,
-        type: 3}
-      propertyPath: shotSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5712809492476911273, guid: 240cee3859aeb384382b50baa302e44c,
-        type: 3}
-      propertyPath: shotPrefab
-      value: 
-      objectReference: {fileID: 1520786051656894, guid: e828d6b5d3f9ae74f8d0b16cb975f160,
-        type: 3}
     - target: {fileID: 5712809493122229832, guid: 240cee3859aeb384382b50baa302e44c,
         type: 3}
       propertyPath: m_Name
@@ -736,17 +706,17 @@ PrefabInstance:
     - target: {fileID: 8436900694678556981, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13350435
+      value: 0.13350433
       objectReference: {fileID: 0}
     - target: {fileID: 8436900694678556981, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017052354
+      value: -0.000000017052356
       objectReference: {fileID: 0}
     - target: {fileID: 8436900694678556981, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000022971278
+      value: 0.0000000022971256
       objectReference: {fileID: 0}
     - target: {fileID: 8436900694988145265, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
@@ -768,16 +738,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 798257572}
-    - target: {fileID: 8436900695132810220, guid: dc77ee934160bdd449dffe36dcc44625,
-        type: 3}
-      propertyPath: m_YAxis.m_InputAxisName
-      value: CameraY
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436900695132810220, guid: dc77ee934160bdd449dffe36dcc44625,
-        type: 3}
-      propertyPath: m_XAxis.m_InputAxisName
-      value: CameraX
-      objectReference: {fileID: 0}
     - target: {fileID: 8436900695622387392, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalPosition.x
