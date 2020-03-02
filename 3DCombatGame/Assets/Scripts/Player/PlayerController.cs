@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
             animator.SetFloat("Speed", (movement / runSpeed).magnitude);
 
-            if (movement.magnitude / currentSpeed > 0.1f)
+            if (movement.magnitude / currentSpeed > 0.05f)
                 previousMovement = movement;
 
             //charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);

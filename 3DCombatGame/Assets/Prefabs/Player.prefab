@@ -132,7 +132,7 @@ MonoBehaviour:
     attackRoot: {fileID: 6088850700146744504}
   targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
 --- !u!1 &6088850700460762691
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   isRunningValue: {fileID: 11400000, guid: 4cf497d7fc359a4429764101b169dfb6, type: 2}
   walkSpeed: 5
   runSpeed: 10
+  turnSpeed: 10
 --- !u!114 &1424102388
 MonoBehaviour:
   m_ObjectHideFlags: 0

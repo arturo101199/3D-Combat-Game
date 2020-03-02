@@ -44,7 +44,7 @@ public class MeleeWeapon : MonoBehaviour
                 Ray r = new Ray(worldPos, attackVector.normalized);
 
                 int contacts = Physics.SphereCastNonAlloc(r, pts.radius, s_RaycastHitCache, attackVector.magnitude,
-                    ~0,
+                    targetLayers.value,
                     QueryTriggerInteraction.Ignore);
 
                 for (int k = 0; k < contacts; ++k)
@@ -100,13 +100,10 @@ public class MeleeWeapon : MonoBehaviour
 
     public void CheckDamage(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if ((targetLayers.value & (1 << other.gameObject.layer)) != 0)
         {
-            Vector3 hitDirection = (other.transform.position - owner.transform.position).normalized; 
+            Vector3 hitDirection = (other.transform.position - owner.transform.position).normalized;
             other.GetComponent<Damageable>().ApplyDamage(damage, hitDirection);
-        }
-        if ((targetLayers.value & (1 << other.gameObject.layer)) == 0)
-        {
             return;
         }
 
