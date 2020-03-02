@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class TrackTransform : MonoBehaviour
 {
     public TransformValue transformToTrack;
@@ -10,7 +11,7 @@ public class TrackTransform : MonoBehaviour
     {
         transformToTrack.SetValue(transform);
     }
-    // Update is called once per frame
+
     void Update()
     {
         transformToTrack.SetValue(transform);
