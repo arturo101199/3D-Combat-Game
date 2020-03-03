@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OrbShotPool
   m_EditorClassIdentifier: 
   prefab: {fileID: 1520786051656894, guid: e828d6b5d3f9ae74f8d0b16cb975f160, type: 3}
-  size: 10
+  size: 6
   tag: OrbShot
