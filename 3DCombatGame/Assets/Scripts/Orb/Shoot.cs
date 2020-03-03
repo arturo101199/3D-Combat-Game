@@ -9,12 +9,17 @@ public class Shoot : MonoBehaviour
     public float shotSpeed = 10f;
     public float fireRate = 1f;
 
+    ObjectPooler objectPooler;
     Vector3 cameraZAxis;
     float timer;
 
+    void Awake()
+    {
+        objectPooler = ObjectPooler.poolerInstance;
+    }
     void Start()
     {
-        timer = 1/fireRate;    
+        timer = 1/fireRate;
     }
 
     // Update is called once per frame
@@ -27,7 +32,8 @@ public class Shoot : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && timer > 1/fireRate)
         {
             camDirection();
-            Instantiate(shotPrefab, transform.position, transform.rotation);
+            objectPooler.SpawnObject("OrbShot", transform.position, transform.rotation);
+            //Instantiate(shotPrefab, transform.position, transform.rotation);
             timer = 0f;
         }
     }
