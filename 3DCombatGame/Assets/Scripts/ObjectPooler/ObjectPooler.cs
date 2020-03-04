@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler poolerInstance;
+    static ObjectPooler poolerInstance;
     public Pool[] pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
 
@@ -16,6 +16,22 @@ public class ObjectPooler : MonoBehaviour
     void Start()
     {
         CreatePools(); 
+    }
+
+    public static ObjectPooler GetInstance()
+    {
+        if (poolerInstance == null)
+        {
+            poolerInstance = GameObject.FindObjectOfType<ObjectPooler>();
+
+            if (poolerInstance == null)
+            {
+                GameObject container = new GameObject("ObjectPooler");
+                poolerInstance = container.AddComponent<ObjectPooler>();
+            }
+        }
+
+        return poolerInstance;
     }
 
     void CreatePools()

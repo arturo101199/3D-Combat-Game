@@ -15,7 +15,7 @@ public class Shoot : MonoBehaviour
 
     void Awake()
     {
-        objectPooler = ObjectPooler.poolerInstance;
+        objectPooler = ObjectPooler.GetInstance();
     }
     void Start()
     {
