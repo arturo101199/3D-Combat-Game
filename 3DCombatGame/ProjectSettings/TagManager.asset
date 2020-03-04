@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shootable
   - Enemy
+  - HitPoint
   layers:
   - Default
   - TransparentFX
