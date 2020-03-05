@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour, IPooledObject
 {
-    RFX4_EffectSettings effect;
-    public ParticleSystem[] particles;
 
-    RFX4_EffectSettings effectAux;
+    public ParticleSystem[] particles;
 
     class ParticlesData
     {
@@ -31,7 +29,6 @@ public class Shot : MonoBehaviour, IPooledObject
 
     void Awake()
     {
-        effect = GetComponent<RFX4_EffectSettings>();
         particlesAux = new ParticlesData[particles.Length];
         for (int i = 0; i < particles.Length; i++)
         {
@@ -43,11 +40,6 @@ public class Shot : MonoBehaviour, IPooledObject
 
     public void OnObjectSpawn()
     {
-        effect.enabled = true;
-        foreach (var particle in particles)
-        {
-            particle.Play();
-        }
         Invoke("Disable", 4);
     }
 
@@ -56,7 +48,6 @@ public class Shot : MonoBehaviour, IPooledObject
         for(int i = 0; i < particles.Length; i++)
         {
             particlesAux[i].maxParticles = particles[i].main.maxParticles;
-            Debug.Log(particlesAux[i].maxParticles);
             particlesAux[i].rateOverDistanceMax = particles[i].emission.rateOverDistance.constantMax;
             particlesAux[i].rateOverDistanceMin = particles[i].emission.rateOverDistance.constantMin;
             particlesAux[i].rateOverTimeMin = particles[i].emission.rateOverTime.constantMin;
@@ -68,7 +59,6 @@ public class Shot : MonoBehaviour, IPooledObject
     {
         RestartParticles();
         gameObject.SetActive(false);
-        effect.enabled = false;
     }
 
     void RestartParticles()

@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             movement = Vector3.zero;
+            animator.SetFloat("Speed", 0f);
         }
 
         if(previousMovement != Vector3.zero)
