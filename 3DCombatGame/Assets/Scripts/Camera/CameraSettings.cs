@@ -8,7 +8,7 @@ public class CameraSettings : MonoBehaviour
     public TransformValue follow;
     public TransformValue lookAt;
 
-    CinemachineFreeLook camera;
+    new CinemachineFreeLook camera; //Si da problemas quitar "new"
 
     void Awake()
     {
