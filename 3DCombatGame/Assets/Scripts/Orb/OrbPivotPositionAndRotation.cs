@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbPositionAndRotation : MonoBehaviour
+public class OrbPivotPositionAndRotation : MonoBehaviour
 {
     public TransformValue targetPositionTransform;
     public TransformValue targetRotationTransform;
