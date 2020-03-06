@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5778422235450797410}
   - component: {fileID: 4992432779653795643}
   - component: {fileID: 6561055415211798702}
+  - component: {fileID: 3399565694664633120}
   m_Layer: 0
   m_Name: ventura
   m_TagString: Untagged
@@ -111,6 +112,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3399565694664633120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027012786936427504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2230425, y: 5.896164, z: 1.6106759}
+  m_Center: {x: 0, y: 0.11602548, z: 0.78654677}
 --- !u!1 &3282790982313412144
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8388992862043383803}
   - component: {fileID: 662229465646833101}
   - component: {fileID: 6488630827359330612}
+  - component: {fileID: 3522404769718756903}
   m_Layer: 0
   m_Name: riva_final
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3522404769718756903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4769568566380123624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.783965, y: 3.225149, z: 2.6597424}
+  m_Center: {x: 0.022100806, y: 0.0000008940699, z: 1.4136009}
