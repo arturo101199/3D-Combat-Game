@@ -57,7 +57,6 @@ public class UndeadController : MonoBehaviour
             else
             {
                 animator.SetBool("attackPlayer", false);
-                //animator.SetBool("isWalking", true);
                 if(!attacking)
                     agent.SetDestination(target.position);
             }
@@ -68,8 +67,6 @@ public class UndeadController : MonoBehaviour
             following = false;
             currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
             animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
-            //animator.SetBool("isWalking", false);
-            //agent.enabled = false;
         }
     }
 
@@ -96,10 +93,6 @@ public class UndeadController : MonoBehaviour
 
     public void animationStarted()
     {
-        /*
-        agent.speed = 0f;
-        agent.velocity = Vector3.zero;
-        */
         agent.enabled = false;
         obstacle.enabled = true;
         attacking = true;
@@ -107,10 +100,13 @@ public class UndeadController : MonoBehaviour
 
     public void animationEnded()
     {
-        //agent.speed = 2f;
-        obstacle.enabled = false;
         agent.enabled = true;
         attacking = false;
+    }
+
+    public void DesactivateObstacle()
+    {
+        obstacle.enabled = false;
     }
 
     void OnDrawGizmosSelected()
