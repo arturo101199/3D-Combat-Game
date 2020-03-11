@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities.Vector;
 
 public class OrbPosition : MonoBehaviour
 {
@@ -32,8 +33,7 @@ public class OrbPosition : MonoBehaviour
     }
     void Update()
     {
-        transform.LookAt(targetTransform.position);
-        Debug.DrawRay(targetTransform.position, (transform.position - targetTransform.position) * offsetMultiplier, Color.red);
+        //Debug.DrawRay(targetTransform.position, (transform.position - targetTransform.position) * offsetMultiplier, Color.red);
         Oscillate();
     }
 
@@ -44,10 +44,11 @@ public class OrbPosition : MonoBehaviour
         {
             float distance = Mathf.Clamp(GetAdjustedDistanceWithRayFrom(targetTransform.position), radiusOffset + 0.05f, Mathf.Infinity);
             transform.localPosition = direction * (distance - radiusOffset);
+            //transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, direction * (distance - radiusOffset), Time.deltaTime * 4f);
         }
         else
         {
-            transform.localPosition = desiredPosition;
+            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, desiredPosition, Time.deltaTime * 2f);
         }
     }
 
@@ -73,7 +74,7 @@ public class OrbPosition : MonoBehaviour
     bool CollisionDetected(Vector3 position, Vector3 targetPos)
     {
         Ray ray = new Ray(targetPos, (position - targetPos).normalized);
-        Debug.DrawRay(targetPos, (position - targetPos).normalized * orbDistance * offsetMultiplier, Color.green);
+        //Debug.DrawRay(targetPos, (position - targetPos).normalized * orbDistance * offsetMultiplier, Color.green);
         //float distance = Vector3.Distance(position, targetPos);
         if(Physics.Raycast(ray, orbDistance * offsetMultiplier, collisionLayer))
         {
