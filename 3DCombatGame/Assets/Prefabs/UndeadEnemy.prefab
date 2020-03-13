@@ -4601,6 +4601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 10
   smoothRotation: 5
+  playerPos: {fileID: 11400000, guid: 4be2929a4e3e64c439bf7b0afa13216e, type: 2}
   following: 0
 --- !u!195 &9068545810998447845
 NavMeshAgent:

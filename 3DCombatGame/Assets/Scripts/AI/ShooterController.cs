@@ -3,36 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UndeadController : MonoBehaviour
+public class ShooterController : MonoBehaviour
 {
 
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
+    float distance;
 
     public TransformValue playerPos;
+    public LayerMask layerMask;
 
     float currentSpeed;
-    float distance;
+
+    public GameObject bullet;
 
     bool attacking = false;
     public bool following = false;
 
     Transform target;
     NavMeshAgent agent;
-    NavMeshObstacle obstacle;
-    Animator animator;
+    //Animator animator;
 
-    MeleeWeapon weapon;
+    Transform shootPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        obstacle = GetComponent<NavMeshObstacle>();
-        animator = GetComponent<Animator>();
-        weapon = GetComponentInChildren<MeleeWeapon>();
+        //animator = GetComponent<Animator>();
+        shootPoint = GetComponentInChildren<Transform>(); //Cambiar cuando pongamos el modelo
 
-        weapon.SetOwner(this.gameObject);
+        //shootPoint.SetOwner(this.gameObject);
     }
 
     // Update is called once per frame
@@ -42,35 +43,35 @@ public class UndeadController : MonoBehaviour
 
         distance = Vector3.Distance(target.position, transform.position); //Poco eficiente.
 
-        animator.SetFloat("undeadSpeed", agent.velocity.magnitude/agent.speed);
+        //animator.SetFloat("undeadSpeed", agent.velocity.magnitude/agent.speed);
 
         if(distance <= viewRadius)
         {
             following = true;
-            agent.speed = 3f;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
+            //Detectar obstaculos entre el enemigo y el jugador
+            DetectWallBetweenPlayer();
             if (!attacking)
                 agent.enabled = true;
             if (distance <= agent.stoppingDistance)
             {
                 //Realizar ataque normal
-                animator.SetBool("attackPlayer", true);
-
+                //Activar animación de ataque
             }
             else
             {
-                animator.SetBool("attackPlayer", false);
+                //Desactivar animación de ataque
                 if(!attacking)
                     agent.SetDestination(target.position);
             }
-            currentSpeed = agent.velocity.magnitude;
+            //currentSpeed = agent.velocity.magnitude;
         }
         else
         {
             following = false;
-            currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
-            animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
+            //currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
+            //animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
         }
     }
 
@@ -85,20 +86,41 @@ public class UndeadController : MonoBehaviour
         }
     }
 
+    void DetectWallBetweenPlayer()
+    {
+        RaycastHit shootHit;
+        Vector3 direction = (target.position - shootPoint.position).normalized;
+        Debug.DrawRay(shootPoint.position, direction * distance, Color.red);
+
+        if(Physics.Raycast(shootPoint.position, direction, out shootHit, distance))
+        {
+            Debug.Log(shootHit.collider.gameObject.name);
+            if (shootHit.collider.CompareTag("Player"))
+            {
+                Debug.Log("PLS");
+                agent.stoppingDistance = 0.1f;
+            }
+            else
+            {
+                Debug.Log("HOLA");
+                agent.stoppingDistance = 8f;
+            }
+        }
+    }
+
     public void BeginAttack()
     {
-        weapon.BeginAttack();
+        //weapon.BeginAttack();
     }
 
     public void EndAttack()
     {
-        weapon.EndAttack();
+        //weapon.EndAttack();
     }
 
     public void animationStarted()
     {
         agent.enabled = false;
-        obstacle.enabled = true;
         attacking = true;
     }
 
@@ -108,10 +130,6 @@ public class UndeadController : MonoBehaviour
         attacking = false;
     }
 
-    public void DesactivateObstacle()
-    {
-        obstacle.enabled = false;
-    }
 
     void OnDrawGizmosSelected()
     {

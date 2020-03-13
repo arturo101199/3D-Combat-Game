@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UndeadPatrol : MonoBehaviour
+public class AIPatrol : MonoBehaviour
 {
 
     UndeadController controller;
