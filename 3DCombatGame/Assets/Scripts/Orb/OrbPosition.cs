@@ -43,8 +43,8 @@ public class OrbPosition : MonoBehaviour
         if (colliding)
         {
             float distance = Mathf.Clamp(GetAdjustedDistanceWithRayFrom(targetTransform.position), radiusOffset + 0.05f, Mathf.Infinity);
-            transform.localPosition = direction * (distance - radiusOffset);
-            //transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, direction * (distance - radiusOffset), Time.deltaTime * 4f);
+            //transform.localPosition = direction * (distance - radiusOffset);
+            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, direction * (distance - radiusOffset), Time.deltaTime * 4f);
         }
         else
         {
