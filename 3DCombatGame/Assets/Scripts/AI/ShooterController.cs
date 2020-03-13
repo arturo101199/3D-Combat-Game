@@ -11,7 +11,6 @@ public class ShooterController : MonoBehaviour
     float distance;
 
     public TransformValue playerPos;
-    public LayerMask layerMask;
 
     float currentSpeed;
 
@@ -95,15 +94,15 @@ public class ShooterController : MonoBehaviour
         if(Physics.Raycast(shootPoint.position, direction, out shootHit, distance))
         {
             Debug.Log(shootHit.collider.gameObject.name);
-            if (shootHit.collider.CompareTag("Player"))
-            {
-                Debug.Log("PLS");
-                agent.stoppingDistance = 0.1f;
-            }
-            else
+            if (shootHit.transform.tag == "Player")
             {
                 Debug.Log("HOLA");
                 agent.stoppingDistance = 8f;
+            }
+            else
+            {
+                Debug.Log("DONDE ESTAS");
+                agent.stoppingDistance = 0.1f;
             }
         }
     }
