@@ -530,7 +530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &872339004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,9 +682,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Controles para Teclado:\n\nMoverse: WASD\nMover la c\xE1mara: rat\xF3n\nAtacar:
-    Click izquierdo del rat\xF3n(pulsar varias veces para hacer combo)\nCorrer: Shift
-    Izquierdo\nVoltereta: Ctrl Izquierdo\nDisparar: Alt Izquierdo"
+  m_Text: "Controles para Teclado (Aconsejable jugar con mando, con raton la c\xE1mara
+    va muy lenta) :\n\nMoverse: WASD\nMover la c\xE1mara: rat\xF3n\nAtacar: Click
+    izquierdo del rat\xF3n(pulsar varias veces para hacer combo)\nCorrer: Shift Izquierdo\nVoltereta:
+    Ctrl Izquierdo\nDisparar: Alt Izquierdo"
 --- !u!222 &1057350436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1282,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredPosition: {x: -0.5, y: 0, z: -0.2}
-  targetTransform: {fileID: 1799446913}
+  OrbPivot: {fileID: 1799446913}
   collisionLayer:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1590,7 +1591,7 @@ PrefabInstance:
     - target: {fileID: 5712809493122229832, guid: 240cee3859aeb384382b50baa302e44c,
         type: 3}
       propertyPath: m_Name
-      value: Orb
+      value: OrbPivot
       objectReference: {fileID: 0}
     - target: {fileID: 5712809493122229832, guid: 240cee3859aeb384382b50baa302e44c,
         type: 3}
@@ -1773,12 +1774,12 @@ PrefabInstance:
     - target: {fileID: 8436900694988145265, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017651573
+      value: 0.000000017651578
       objectReference: {fileID: 0}
     - target: {fileID: 8436900694988145265, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017277717
+      value: -0.0000000017277717
       objectReference: {fileID: 0}
     - target: {fileID: 8436900695132810220, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
@@ -1790,6 +1791,16 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 798257572}
+    - target: {fileID: 8436900695132810220, guid: dc77ee934160bdd449dffe36dcc44625,
+        type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436900695132810220, guid: dc77ee934160bdd449dffe36dcc44625,
+        type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8436900695622387392, guid: dc77ee934160bdd449dffe36dcc44625,
         type: 3}
       propertyPath: m_LocalPosition.x

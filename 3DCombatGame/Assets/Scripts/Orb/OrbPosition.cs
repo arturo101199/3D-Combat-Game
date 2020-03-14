@@ -6,7 +6,7 @@ using Utilities.Vector;
 public class OrbPosition : MonoBehaviour
 {
     public Vector3 desiredPosition;
-    public Transform targetTransform;
+    public Transform OrbPivot;
     public LayerMask collisionLayer;
 
     //Oscilation parameters
@@ -26,29 +26,31 @@ public class OrbPosition : MonoBehaviour
     float offsetMultiplier = 1.2f;
     float radiusOffset = 0.2f;
 
+    const float repositionSpeed = 4f;
+    const float returningSpeed = 2f;
+
     void Start()
     {
-        direction = (transform.position - targetTransform.position).normalized;
-        orbDistance = Vector3.Distance(transform.position, targetTransform.position);
+        direction = (transform.position - OrbPivot.position).normalized;     //direction from center of the player to the orb
+        orbDistance = Vector3.Distance(transform.position, OrbPivot.position);
     }
     void Update()
     {
-        //Debug.DrawRay(targetTransform.position, (transform.position - targetTransform.position) * offsetMultiplier, Color.red);
+        //Debug.DrawRay(OrbPivot.position, (transform.position - OrbPivot.position) * offsetMultiplier, Color.red);
         Oscillate();
     }
 
     void FixedUpdate()
     {
-        CheckColliding(targetTransform.position);
+        CheckCollidingFromTo(OrbPivot.position, transform.position);
         if (colliding)
         {
-            float distance = Mathf.Clamp(GetAdjustedDistanceWithRayFrom(targetTransform.position), radiusOffset + 0.05f, Mathf.Infinity);
-            //transform.localPosition = direction * (distance - radiusOffset);
-            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, direction * (distance - radiusOffset), Time.deltaTime * 4f);
+            float distance = Mathf.Clamp(GetAdjustedDistanceWithRayFromTo(OrbPivot.position, transform.position), radiusOffset + 0.05f, Mathf.Infinity);
+            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, direction * (distance - radiusOffset), Time.deltaTime * repositionSpeed);
         }
         else
         {
-            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, desiredPosition, Time.deltaTime * 2f);
+            transform.localPosition = VectorUtilities.LerpXZ(transform.localPosition, desiredPosition, Time.deltaTime * returningSpeed);
         }
     }
 
@@ -71,11 +73,10 @@ public class OrbPosition : MonoBehaviour
     }
 
 
-    bool CollisionDetected(Vector3 position, Vector3 targetPos)
+    bool CollisionDetectedFromTo(Vector3 from, Vector3 to)
     {
-        Ray ray = new Ray(targetPos, (position - targetPos).normalized);
+        Ray ray = new Ray(from, to - from);
         //Debug.DrawRay(targetPos, (position - targetPos).normalized * orbDistance * offsetMultiplier, Color.green);
-        //float distance = Vector3.Distance(position, targetPos);
         if(Physics.Raycast(ray, orbDistance * offsetMultiplier, collisionLayer))
         {
             return true;
@@ -83,23 +84,21 @@ public class OrbPosition : MonoBehaviour
         return false;
     }
 
-    float GetAdjustedDistanceWithRayFrom(Vector3 from)
+    float GetAdjustedDistanceWithRayFromTo(Vector3 from, Vector3 to)
     {
-        float distance = -1;
-        Ray ray = new Ray(from, transform.position - from);
+        float distance = 0;
+        Ray ray = new Ray(from, to - from);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
             distance = hit.distance;
         }
 
-        if (distance == -1)
-            return 0;
-        else return distance;
+        return distance;
     }
 
-    void CheckColliding(Vector3 targetPos)
+    void CheckCollidingFromTo(Vector3 from, Vector3 to)
     {
-        colliding = (CollisionDetected(transform.position, targetPos));
+        colliding = (CollisionDetectedFromTo(from, to));
     }
 }
