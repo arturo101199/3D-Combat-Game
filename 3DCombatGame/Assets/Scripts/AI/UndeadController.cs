@@ -42,14 +42,14 @@ public class UndeadController : MonoBehaviour
 
         distance = Vector3.Distance(target.position, transform.position); //Poco eficiente.
 
-        animator.SetFloat("undeadSpeed", agent.velocity.magnitude/agent.speed);
-
         if(distance <= viewRadius)
         {
             following = true;
             agent.speed = 3f;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
+            currentSpeed = Mathf.Lerp(currentSpeed, agent.speed, Time.deltaTime * 1.5f);
+            animator.SetFloat("undeadSpeed", currentSpeed);
             if (!attacking)
                 agent.enabled = true;
             if (distance <= agent.stoppingDistance)
@@ -69,8 +69,8 @@ public class UndeadController : MonoBehaviour
         else
         {
             following = false;
-            currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
-            animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
+            agent.speed = 2f;           
+            
         }
     }
 
