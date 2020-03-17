@@ -10,6 +10,8 @@ public class AIPatrol : MonoBehaviour
     NavMeshAgent agent;
     Animator animator;
 
+    float currentSpeed;
+
     public float waitTime;
     public float startWaitTime;
 
@@ -32,8 +34,7 @@ public class AIPatrol : MonoBehaviour
     {
         if (!controller.following)
         {
-
-            animator.SetFloat("undeadSpeed", agent.velocity.magnitude / (agent.speed * 1.7f));
+            animator.SetFloat("undeadSpeed", 0.5f);
             agent.SetDestination(movePoints[randomPoint].position);
 
             if (Vector3.Distance(transform.position, movePoints[randomPoint].position) < 1f)
@@ -47,6 +48,8 @@ public class AIPatrol : MonoBehaviour
                 else
                 {
                     waitTime -= Time.deltaTime;
+                    currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
+                    animator.SetFloat("undeadSpeed", currentSpeed / agent.speed);
                 }
             }
         }

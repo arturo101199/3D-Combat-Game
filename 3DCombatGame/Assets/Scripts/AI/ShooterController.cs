@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class ShooterController : MonoBehaviour
 {
 
+    private ObjectPooler objectPool;
+
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
     float distance;
@@ -13,8 +15,6 @@ public class ShooterController : MonoBehaviour
     public TransformValue playerPos;
 
     float currentSpeed;
-
-    public GameObject bullet;
 
     bool attacking = false;
     public bool following = false;
@@ -25,6 +25,16 @@ public class ShooterController : MonoBehaviour
 
     Transform shootPoint;
 
+    //Para disparos en parabola
+    public float firingAngle = 45.0f;
+    public float gravity = 9.8f;
+
+    private void Awake()
+    {
+        objectPool = ObjectPooler.GetInstance();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +43,8 @@ public class ShooterController : MonoBehaviour
         shootPoint = GetComponentInChildren<Transform>(); //Cambiar cuando pongamos el modelo
 
         //shootPoint.SetOwner(this.gameObject);
+
+        StartCoroutine(ShootProjectile());
     }
 
     // Update is called once per frame
@@ -74,6 +86,52 @@ public class ShooterController : MonoBehaviour
         }
     }
 
+    IEnumerator ShootProjectile()
+    {
+        // Short delay added before Projectile is thrown
+        yield return new WaitForSeconds(0.1f);
+
+        //Instance prefab from object pool
+        Transform Projectile = objectPool.SpawnObject("Bullet", shootPoint.position, Quaternion.identity).GetComponent<Transform>();
+
+        // Move projectile to the position of throwing object + add some offset if needed.
+        Projectile.position = shootPoint.position;
+
+        // Calculate distance to target
+        //float target_Distance = Vector3.Distance(Projectile.position, target.position);
+
+        // Calculate the velocity needed to throw the object to the target at specified angle.
+        float projectile_Velocity = distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
+
+        // Extract the X  Y componenent of the velocity
+        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
+        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+
+        // Calculate flight time.
+        float flightDuration = distance / Vx;
+
+        // Rotate projectile to face the target.
+        Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
+
+        float elapse_time = 0;
+
+        while (elapse_time < flightDuration)
+        {
+            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
+
+            elapse_time += Time.deltaTime;
+
+            yield return null;
+        }
+
+        //Desintegrate projectile
+        Projectile.GetComponent<Bullet>().Desintegrate();
+
+        //Shoot again
+        StartCoroutine(ShootProjectile());
+
+    }
+
     void FaceTarget()
     {
         if (!attacking)
@@ -91,13 +149,17 @@ public class ShooterController : MonoBehaviour
         Vector3 direction = (target.position - shootPoint.position).normalized;
         Debug.DrawRay(shootPoint.position, direction * distance, Color.red);
 
-        if(Physics.Raycast(shootPoint.position, direction, out shootHit, distance))
+        if (Physics.Raycast(shootPoint.position, direction, out shootHit, distance))
         {
-            Debug.Log(shootHit.collider.gameObject.name);
-            if (shootHit.transform.tag == "Player")
+            if (shootHit.collider.CompareTag("Player"))
             {
                 Debug.Log("HOLA");
-                agent.stoppingDistance = 8f;
+                agent.stoppingDistance = 16f;
+            }
+            else if(shootHit.collider.CompareTag("Enemy"))
+            {
+                Debug.Log("HAY UN ENEMIGO DELANTE");
+                agent.stoppingDistance = 16f;
             }
             else
             {
