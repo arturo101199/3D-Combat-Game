@@ -39,9 +39,16 @@ public class Damageable : MonoBehaviour
     {
         if (isInvulnerable)
             return;
+
         currentHitPoints -= hitPoints;
         isInvulnerable = true;
-        rb.AddForce(hitDirection * 100f);
+
+        //Apply hit effects
+        IEffectWhenDamaged obj = GetComponent<IEffectWhenDamaged>();
+        if(obj != null)
+        {
+            obj.WhenDamaged(hitDirection);
+        }
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 {
     public float gravity = 9.8f;
 
@@ -25,24 +25,24 @@ public class PlayerController : MonoBehaviour
 
     public MeleeWeapon meleeWeapon;
     public BoolValue isRunningValue;
+    public FloatValue currentStamina;
+    public Stamina stamina;
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float turnSpeed = 10f;
+    public float dashCost = 20f;
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         charctrl = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
+        stamina = GetComponent<Stamina>();
         meleeWeapon.SetOwner(gameObject);
     }
 
     void Update()
     {
-        /*timer += Time.unscaledDeltaTime;
-        if (timer > 0.05f)
-            Time.timeScale = 1;*/
-
         isRunningValue.value = isRunning;
 
         animator.ResetTrigger("Attack");
@@ -95,8 +95,6 @@ public class PlayerController : MonoBehaviour
 
             if (movement.magnitude / currentSpeed > 0.05f)
                 previousMovement = movement;
-
-            //charctrl.transform.rotation = Quaternion.Slerp(charctrl.transform.rotation, Quaternion.LookRotation(previousMovement), Time.deltaTime * turnSpeed);
         }
 
         else
@@ -155,10 +153,14 @@ public class PlayerController : MonoBehaviour
 
     void Dash()
     {
-        if (playerInput.GetDashInput() && movement.magnitude/walkSpeed > 0.8f)
+        if (playerInput.GetDashInput() && !inDash && movement.magnitude/walkSpeed > 0.8f)
         {
-            SetOrientationDirectly();
-            animator.SetTrigger("Dash");
+            if(currentStamina.GetValue() > 0f)
+            {
+                SetOrientationDirectly();
+                animator.SetTrigger("Dash");
+                stamina.WasteStamina(dashCost);
+            }
         }
 
     }
@@ -197,6 +199,13 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsRunning", isRunning);
     }
 
+
+    public void WhenDamaged(Vector3 direction)
+    {
+        throw new NotImplementedException();
+    }
+
+    #region AnimationEvents
     public void StartAttackCollision()
     {
         meleeWeapon.BeginAttack();
@@ -238,4 +247,5 @@ public class PlayerController : MonoBehaviour
     {
         inBetweenCombos = false;
     }
+    #endregion
 }

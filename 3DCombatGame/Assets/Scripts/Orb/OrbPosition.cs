@@ -36,7 +36,7 @@ public class OrbPosition : MonoBehaviour
     }
     void Update()
     {
-        //Debug.DrawRay(OrbPivot.position, (transform.position - OrbPivot.position) * offsetMultiplier, Color.red);
+        Debug.DrawRay(OrbPivot.position, (transform.position - OrbPivot.position) * offsetMultiplier, Color.red);
         Oscillate();
     }
 
@@ -76,7 +76,7 @@ public class OrbPosition : MonoBehaviour
     bool CollisionDetectedFromTo(Vector3 from, Vector3 to)
     {
         Ray ray = new Ray(from, to - from);
-        //Debug.DrawRay(targetPos, (position - targetPos).normalized * orbDistance * offsetMultiplier, Color.green);
+        Debug.DrawRay(from, (to - from).normalized * orbDistance * offsetMultiplier, Color.green);
         if(Physics.Raycast(ray, orbDistance * offsetMultiplier, collisionLayer))
         {
             return true;
