@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
     PlayerInput playerInput;
     CharacterController charctrl;
     Animator animator;
+    Stamina stamina;
     Vector3 moveInput;
     Vector3 cameraXAxis;
     Vector3 cameraZAxis;
@@ -22,15 +23,21 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
     bool inBetweenCombos;
     //float timer;
     
-
+    [Header("External References")]
     public MeleeWeapon meleeWeapon;
     public BoolValue isRunningValue;
     public FloatValue currentStamina;
-    public Stamina stamina;
+    
+
+    [Header("Speeds")]
     public float walkSpeed = 5f;
     public float runSpeed = 10f;
     public float turnSpeed = 10f;
+
+    [Header("Stamina costs")]
     public float dashCost = 20f;
+    public float attackCost = 20f;
+    public float runCost = 10f;
 
     void Awake()
     {
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 
     void Update()
     {
+        Debug.Log(currentStamina.GetValue());
         isRunningValue.value = isRunning;
 
         animator.ResetTrigger("Attack");
@@ -142,12 +150,11 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 
     void Attack()
     {
-        if (playerInput.GetAttackInput())
+        if (playerInput.GetAttackInput() && currentStamina.GetValue() > 0f)
         {
-
             SetOrientationDirectly();
-
             animator.SetTrigger("Attack");
+            stamina.WasteStamina(attackCost);
         }
     }
 
@@ -174,7 +181,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 
     void Run()
     {
-        if (playerInput.GetRunInput())
+        if (playerInput.GetRunInput() && stamina.GetCanRun())
         {
             if (movement.magnitude / walkSpeed > 0.8f)
             {
@@ -183,6 +190,8 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
                     currentSpeed = Mathf.Lerp(currentSpeed, runSpeed, Time.deltaTime * 3f);
                 else
                     currentSpeed = runSpeed;
+                if(!inDash)
+                    stamina.WasteStamina(runCost * Time.deltaTime);
             }
             else if (movement.magnitude / runSpeed <= 0.5f)
                 isRunning = false;

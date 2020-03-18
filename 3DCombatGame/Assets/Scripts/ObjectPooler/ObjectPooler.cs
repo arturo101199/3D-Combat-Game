@@ -26,8 +26,8 @@ public class ObjectPooler : MonoBehaviour
 
             if (poolerInstance == null)
             {
-                GameObject container = new GameObject("ObjectPooler");
-                poolerInstance = container.AddComponent<ObjectPooler>();
+                GameObject container = Instantiate(Resources.Load("ObjectPooler")) as GameObject;
+                poolerInstance = container.GetComponent<ObjectPooler>();
             }
         }
 

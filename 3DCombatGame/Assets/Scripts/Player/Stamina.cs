@@ -12,6 +12,8 @@ public class Stamina : MonoBehaviour
     float currentStamina;
     float timer;
 
+    bool canRun;
+
     void Start()
     {
         stamina.SetValue(maxStamina);
@@ -22,6 +24,7 @@ public class Stamina : MonoBehaviour
     {
         currentStamina = Mathf.Clamp(currentStamina - staminaWasted, 0f, maxStamina);
         stamina.SetValue(currentStamina);
+        canRun = true;
         timer = 0f;
     }
 
@@ -30,7 +33,7 @@ public class Stamina : MonoBehaviour
         timer += Time.deltaTime;
         currentStamina = stamina.GetValue();
         UpStamina();
-        Debug.Log(currentStamina);
+        CheckIfCanRun();
     }
 
     void UpStamina()
@@ -40,5 +43,22 @@ public class Stamina : MonoBehaviour
             currentStamina = Mathf.Clamp(currentStamina + Time.deltaTime * staminaUpSpeed, 0f, maxStamina);
         }
         stamina.SetValue(currentStamina);
+    }
+
+    void CheckIfCanRun()
+    {
+        if(currentStamina == 0f)
+        {
+            canRun = false;
+        }
+        else if(currentStamina == maxStamina)
+        {
+            canRun = true;
+        }
+    }
+
+    public bool GetCanRun()
+    {
+        return canRun;
     }
 }
