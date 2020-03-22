@@ -154,7 +154,6 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
         {
             SetOrientationDirectly();
             animator.SetTrigger("Attack");
-            stamina.WasteStamina(attackCost);
         }
     }
 
@@ -208,7 +207,6 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
         animator.SetBool("IsRunning", isRunning);
     }
 
-
     public void WhenDamaged(Vector3 direction)
     {
         throw new NotImplementedException();
@@ -223,13 +221,12 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
     public void EndAttackCollision()
     {
         meleeWeapon.EndAttack();
-        /*Time.timeScale = 0f;
-        timer = 0f;*/
     }
 
     public void BeginCombo()
     {
         inCombo = true;
+        stamina.WasteStamina(attackCost);
     }
 
     public void EndCombo()
