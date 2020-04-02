@@ -21,11 +21,11 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 74423cbef99ad234e9191594e6c27a06, type: 3}
-        m_Scale: {x: 50, y: 50}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _BumpMap2:
         m_Texture: {fileID: 2800000, guid: 34894f0cefebc01468c18d5579f2d9e4, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _Cube:
         m_Texture: {fileID: 8900000, guid: 3b5eaa969aa89fb45b025e2ff7d7695a, type: 3}
@@ -41,11 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 08fee7c705165d84294fc4eb7c8a3a10, type: 3}
-        m_Scale: {x: 25, y: 25}
+        m_Scale: {x: 50, y: 50}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 2800000, guid: 2c912b5ea76df334684f8f50f436bf17, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 40, y: 40}
         m_Offset: {x: 0, y: 0}
     - _RefCube:
         m_Texture: {fileID: 8900000, guid: 5b4361bda0746024eb47ad645b331d56, type: 3}
@@ -93,7 +93,7 @@ Material:
     - _DetailInt: 0.4
     - _DetailTile: 10
     - _DetailTiling: 10
-    - _Emis: 0.05
+    - _Emis: 0.061
     - _Fresnel: 1
     - _FresnelScale: 0.75
     - _GerstnerIntensity: 1

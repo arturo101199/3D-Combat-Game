@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1
+  strength: 0.01
   useScattering: 0
   overrideScattering: 0
   overridingScattering: 0.5
@@ -401,11 +401,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10822010, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: m_Range
-      value: 147.62
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 10822010, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: m_Intensity
-      value: 19.5
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: m_Enabled
@@ -417,7 +421,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: GraphIntensityMultiplier
-      value: 19.5
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[0].time
+      value: -0.020881653
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[0].value
+      value: 0.73760986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[1].time
+      value: 0.49688187
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[1].value
+      value: 1.0004145
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[1].inSlope
+      value: 1.4999418
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[1].outSlope
+      value: 1.4999418
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[2].value
+      value: 0.75257874
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: LightCurve.m_Curve.Array.data[2].outWeight
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 19809592, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -477,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
         type: 3}
       propertyPath: EffectColor.r
-      value: 0.13562727
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
         type: 3}
@@ -487,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
         type: 3}
       propertyPath: EffectColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
