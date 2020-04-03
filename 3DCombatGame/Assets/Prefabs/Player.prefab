@@ -146,6 +146,8 @@ GameObject:
   - component: {fileID: 6541955862763936768}
   - component: {fileID: 2902062164210807675}
   - component: {fileID: 1424102388}
+  - component: {fileID: 923463524}
+  - component: {fileID: 923463525}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -214,9 +216,13 @@ MonoBehaviour:
   gravity: 9.8
   meleeWeapon: {fileID: 733412566338974606}
   isRunningValue: {fileID: 11400000, guid: 4cf497d7fc359a4429764101b169dfb6, type: 2}
+  currentStamina: {fileID: 11400000, guid: 1910619472f977e44bf94c776064d02d, type: 2}
   walkSpeed: 5
   runSpeed: 10
   turnSpeed: 10
+  dashCost: 10
+  attackCost: 10
+  runCost: 20
 --- !u!114 &1424102388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +236,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformToTrack: {fileID: 11400000, guid: 4be2929a4e3e64c439bf7b0afa13216e, type: 2}
+--- !u!114 &923463524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088850700460762691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6361bd297a9745b9acfeb00b2bbf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina: {fileID: 11400000, guid: 1910619472f977e44bf94c776064d02d, type: 2}
+  maxStamina: 100
+  staminaUpSpeed: 30
+  StopRegenerationTime: 1
+--- !u!114 &923463525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6088850700460762691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff42f3d5c585114abe507cb03444ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 0
+  invulnerabiltyTime: 0
 --- !u!1001 &1834782546631946887
 PrefabInstance:
   m_ObjectHideFlags: 0

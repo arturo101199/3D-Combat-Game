@@ -9,7 +9,7 @@ TerrainLayer:
   m_Name: Dried_Soil
   m_DiffuseTexture: {fileID: 2800000, guid: 1bf26852af42a6548b3f47e03c0de51e, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: 654459bbdd5dc674086e757e46fc199b, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: 6c4be97469d8cc2429533cc1a811399f, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: 58d14a200f42e96488f3453e3f0c77cf, type: 3}
   m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}

@@ -9,7 +9,7 @@ TerrainLayer:
   m_Name: Abstract_Organic_003
   m_DiffuseTexture: {fileID: 2800000, guid: 811ba51387e151e40b9d92958be91a98, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: 511620eb10704294cbabf33c55929a15, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: 4d08dbd5ad99f0c4cbe951cc12490377, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: c101b51a76339b4449c577a7732a7edd, type: 3}
   m_TileSize: {x: 8, y: 8}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}

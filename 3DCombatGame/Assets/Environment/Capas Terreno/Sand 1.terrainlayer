@@ -9,7 +9,7 @@ TerrainLayer:
   m_Name: Sand 1
   m_DiffuseTexture: {fileID: 2800000, guid: 234e0034822032949871a59c0b147db9, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: cdf9b0b856cd69248a9af77ce7514722, type: 3}
-  m_MaskMapTexture: {fileID: 0}
+  m_MaskMapTexture: {fileID: 2800000, guid: c8caa5b64e50abb4c8a62e76a704e051, type: 3}
   m_TileSize: {x: 6, y: 6}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}

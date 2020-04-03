@@ -9,7 +9,7 @@ TerrainLayer:
   m_Name: Asphalt_005
   m_DiffuseTexture: {fileID: 2800000, guid: ee581ad43e80ca849a3192d0f9482d08, type: 3}
   m_NormalMapTexture: {fileID: 2800000, guid: 0f9b9cf6aee87df46b46504a76ba1a85, type: 3}
-  m_MaskMapTexture: {fileID: 0}
+  m_MaskMapTexture: {fileID: 2800000, guid: 9ebb5267f43244c428ecd9c381a522dc, type: 3}
   m_TileSize: {x: 4, y: 4}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
