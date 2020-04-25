@@ -484,7 +484,7 @@ namespace Aura2API
 
                 _computeVisibleCellsComputeShader.SetBuffer(4, "visibleCellsAmountBuffer", _dispatchBuffers[0]);
                 _computeVisibleCellsComputeShader.SetBuffer(4, "sizeBuffer", _dispatchBuffers[1]);
-                _computeVisibleCellsComputeShader.DispatchIndirect(2, _dispatchBuffers[4]);
+                _computeVisibleCellsComputeShader.DispatchIndirect(kernelIndex, _dispatchBuffers[4]);
                 Profiler.EndSample();
 
                 Profiler.EndSample();
@@ -502,7 +502,7 @@ namespace Aura2API
                 _computeVisibleCellsComputeShader.SetTexture(kernelIndex, "occlusionTexture", Aura.ResourcesCollection.dummyTexture);
                 _computeVisibleCellsComputeShader.SetTexture(kernelIndex, "maximumSliceAmountTexture", Aura.ResourcesCollection.DummyTextureUAV);
                 _computeVisibleCellsComputeShader.SetBuffer(kernelIndex, "appendedCellsBuffer", _dispatchBuffers[5]);
-                _computeVisibleCellsComputeShader.DispatchIndirect(0, _dispatchBuffers[3]);
+                _computeVisibleCellsComputeShader.DispatchIndirect(kernelIndex, _dispatchBuffers[3]);
             }
             #endregion
 

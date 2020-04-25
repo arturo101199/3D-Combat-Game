@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class UndeadController : MonoBehaviour
 {
+    public float maxHealth = 100f;
+    public EnemyHealthBarManager HealthBarManager;
+    private float curretnHealth;
 
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
@@ -33,6 +36,10 @@ public class UndeadController : MonoBehaviour
         weapon = GetComponentInChildren<MeleeWeapon>();
 
         weapon.SetOwner(this.gameObject);
+
+        //Inicializa la vida y establece la barra
+        curretnHealth = maxHealth;
+        HealthBarManager.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
