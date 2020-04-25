@@ -6,8 +6,6 @@ using UnityEngine.AI;
 public class ShooterController : MonoBehaviour
 {
 
-    private ObjectPooler objectPool;
-
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
     float distance;
@@ -16,23 +14,12 @@ public class ShooterController : MonoBehaviour
 
     float currentSpeed;
 
-    bool attacking = false;
+    public bool attacking = false;
     public bool following = false;
 
     Transform target;
     NavMeshAgent agent;
     //Animator animator;
-
-    Transform shootPoint;
-
-    //Para disparos en parabola
-    public float firingAngle = 45.0f;
-    public float gravity = 9.8f;
-
-    private void Awake()
-    {
-        objectPool = ObjectPooler.GetInstance();
-    }
 
 
     // Start is called before the first frame update
@@ -40,11 +27,8 @@ public class ShooterController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         //animator = GetComponent<Animator>();
-        shootPoint = GetComponentInChildren<Transform>(); //Cambiar cuando pongamos el modelo
 
         //shootPoint.SetOwner(this.gameObject);
-
-        StartCoroutine(ShootProjectile());
     }
 
     // Update is called once per frame
@@ -58,17 +42,18 @@ public class ShooterController : MonoBehaviour
 
         if(distance <= viewRadius)
         {
+            //Iniciamos persecución
             following = true;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
             //Detectar obstaculos entre el enemigo y el jugador
-            DetectWallBetweenPlayer();
+            //DetectWallBetweenPlayer();
             if (!attacking)
                 agent.enabled = true;
             if (distance <= agent.stoppingDistance)
             {
-                //Realizar ataque normal
                 //Activar animación de ataque
+                //Realizar ataque a distancia
             }
             else
             {
@@ -86,6 +71,7 @@ public class ShooterController : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator ShootProjectile()
     {
         // Short delay added before Projectile is thrown
@@ -131,6 +117,7 @@ public class ShooterController : MonoBehaviour
         StartCoroutine(ShootProjectile());
 
     }
+    */
 
     void FaceTarget()
     {
@@ -143,6 +130,7 @@ public class ShooterController : MonoBehaviour
         }
     }
 
+    /*
     void DetectWallBetweenPlayer()
     {
         RaycastHit shootHit;
@@ -168,6 +156,7 @@ public class ShooterController : MonoBehaviour
             }
         }
     }
+    */
 
     public void BeginAttack()
     {

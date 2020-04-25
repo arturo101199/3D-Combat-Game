@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ecf44fc5d35c741920009987cbdfc3, type: 3}
   m_Name: EnemyBulletsPool
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6278079025030251046, guid: 4106a5e857874f04c9cc5f62b24d78ea, type: 3}
+  prefab: {fileID: 2098035129085923702, guid: b011d4a99ec3d4b4fbdeed6d179bb9e3, type: 3}
   size: 10
   tag: Bullet

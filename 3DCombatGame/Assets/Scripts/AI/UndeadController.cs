@@ -52,7 +52,7 @@ public class UndeadController : MonoBehaviour
         if(distance <= viewRadius)
         {
             following = true;
-            agent.speed = 3f;
+            agent.speed = 2f;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
             currentSpeed = Mathf.Lerp(currentSpeed, agent.speed, Time.deltaTime * 1.5f);
@@ -76,7 +76,7 @@ public class UndeadController : MonoBehaviour
         else
         {
             following = false;
-            agent.speed = 2f;           
+            agent.speed = 1f;           
             
         }
     }
