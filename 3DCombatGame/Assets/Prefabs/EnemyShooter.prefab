@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5180424438920790715}
   m_Layer: 11
   m_Name: EnemyShooter
-  m_TagString: Enemy
+  m_TagString: EnemyRange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,9 @@ MonoBehaviour:
   playerPos: {fileID: 11400000, guid: 37c75b4eba17a2146b74f1bbae536539, type: 2}
   attacking: 0
   following: 0
+  chasing: 0
+  ChaseArea: {fileID: 8297059873242435453, guid: 26b993ce64fa7dc46a369b8293088904,
+    type: 3}
 --- !u!1 &5180424440345364757
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,5 +277,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 11400000, guid: 37c75b4eba17a2146b74f1bbae536539, type: 2}
-  gravity: 9.81
   bulletSpeed: 15

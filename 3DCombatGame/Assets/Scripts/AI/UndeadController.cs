@@ -17,8 +17,11 @@ public class UndeadController : MonoBehaviour
     float currentSpeed;
     float distance;
 
-    bool attacking = false;
-    public bool following = false;
+    bool attacking;
+    public bool following;
+    public bool chasing;
+
+    public GameObject ChaseArea;
 
     Transform target;
     NavMeshAgent agent;
@@ -49,8 +52,10 @@ public class UndeadController : MonoBehaviour
 
         distance = Vector3.Distance(target.position, transform.position); //Poco eficiente.
 
-        if(distance <= viewRadius)
+        if(distance <= viewRadius || chasing)
         {
+            if (!chasing)
+                createChaseArea();
             following = true;
             agent.speed = 2f;
             //Mirar al jugador (si no está atacando)
@@ -79,6 +84,12 @@ public class UndeadController : MonoBehaviour
             agent.speed = 1f;           
             
         }
+    }
+
+    void createChaseArea()
+    {
+        Instantiate(ChaseArea, new Vector3(target.position.x, target.position.y, target.position.z), Quaternion.identity);
+        Debug.Log("ZONA CREADA");
     }
 
     void FaceTarget()

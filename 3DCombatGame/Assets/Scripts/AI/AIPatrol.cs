@@ -6,9 +6,13 @@ using UnityEngine.AI;
 public class AIPatrol : MonoBehaviour
 {
 
-    UndeadController controller;
+    UndeadController undead;
+    ShooterController range;
     NavMeshAgent agent;
     Animator animator;
+
+    bool isUndead;
+    bool isRanged;
 
     float currentSpeed;
 
@@ -22,9 +26,23 @@ public class AIPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<UndeadController>();
-        agent = controller.GetComponent<NavMeshAgent>();
-        animator = controller.GetComponent<Animator>();
+        switch (this.tag)
+        {
+            case "EnemyUndead":
+                undead = GetComponent<UndeadController>();
+                agent = undead.GetComponent<NavMeshAgent>();
+                animator = undead.GetComponent<Animator>();
+                isUndead = true;
+                break;
+            case "EnemyRange":
+                range = GetComponent<ShooterController>();
+                agent = range.GetComponent<NavMeshAgent>();
+                //animator = range.GetComponent<Animator>();
+                isRanged = true;
+                break;
+            default:
+                break;
+        }
         randomPoint = Random.Range(0, movePoints.Length);
         waitTime = startWaitTime;
     }
@@ -32,27 +50,52 @@ public class AIPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!controller.following)
-        {
-            animator.SetFloat("undeadSpeed", 0.5f);
-            agent.SetDestination(movePoints[randomPoint].position);
-
-            if (Vector3.Distance(transform.position, movePoints[randomPoint].position) < 1f)
+        if(isUndead)
+            if (!undead.following)
             {
-                if (waitTime <= 0f)
+                animator.SetFloat("undeadSpeed", 0.5f);
+                agent.SetDestination(movePoints[randomPoint].position);
+
+                if (Vector3.Distance(transform.position, movePoints[randomPoint].position) < 1f)
                 {
-                    randomPoint = Random.Range(0, movePoints.Length);
-                    waitTime = startWaitTime;
-                    agent.SetDestination(movePoints[randomPoint].position);
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                    currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
-                    animator.SetFloat("undeadSpeed", currentSpeed / agent.speed);
+                    if (waitTime <= 0f)
+                    {
+                        randomPoint = Random.Range(0, movePoints.Length);
+                        waitTime = startWaitTime;
+                        agent.SetDestination(movePoints[randomPoint].position);
+                    }
+                    else
+                    {
+                        waitTime -= Time.deltaTime;
+                        currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
+                        animator.SetFloat("undeadSpeed", currentSpeed / agent.speed);
+                    }
                 }
             }
-        }
+
+        else if(isRanged)
+            if (!range.following)
+            {
+                Debug.Log("ESTO FUNCIONA?");
+                //animator.SetFloat("undeadSpeed", 0.5f);
+                agent.SetDestination(movePoints[randomPoint].position);
+
+                if (Vector3.Distance(transform.position, movePoints[randomPoint].position) < 1f)
+                {
+                    if (waitTime <= 0f)
+                    {
+                        randomPoint = Random.Range(0, movePoints.Length);
+                        waitTime = startWaitTime;
+                        agent.SetDestination(movePoints[randomPoint].position);
+                    }
+                    else
+                    {
+                        waitTime -= Time.deltaTime;
+                        //currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
+                        //animator.SetFloat("undeadSpeed", currentSpeed / agent.speed);
+                    }
+                }
+            }
 
     }
 }

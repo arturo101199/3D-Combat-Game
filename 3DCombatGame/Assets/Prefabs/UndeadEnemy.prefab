@@ -5008,7 +5008,7 @@ GameObject:
   - component: {fileID: 9068545811755637473}
   m_Layer: 11
   m_Name: UndeadEnemy
-  m_TagString: Enemy
+  m_TagString: EnemyUndead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5113,6 +5113,9 @@ MonoBehaviour:
   smoothRotation: 5
   playerPos: {fileID: 11400000, guid: 4be2929a4e3e64c439bf7b0afa13216e, type: 2}
   following: 0
+  chasing: 0
+  ChaseArea: {fileID: 8297059873242435453, guid: 26b993ce64fa7dc46a369b8293088904,
+    type: 3}
 --- !u!195 &9068545810998447845
 NavMeshAgent:
   m_ObjectHideFlags: 0

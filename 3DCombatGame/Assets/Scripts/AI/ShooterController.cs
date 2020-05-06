@@ -14,8 +14,11 @@ public class ShooterController : MonoBehaviour
 
     float currentSpeed;
 
-    public bool attacking = false;
-    public bool following = false;
+    public bool attacking;
+    public bool following;
+    public bool chasing;
+
+    public GameObject ChaseArea;
 
     Transform target;
     NavMeshAgent agent;
@@ -40,7 +43,7 @@ public class ShooterController : MonoBehaviour
 
         //animator.SetFloat("undeadSpeed", agent.velocity.magnitude/agent.speed);
 
-        if(distance <= viewRadius)
+        if(distance <= viewRadius || chasing)
         {
             //Iniciamos persecución
             following = true;

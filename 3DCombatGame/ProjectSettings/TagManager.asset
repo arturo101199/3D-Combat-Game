@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
-  - Enemy
   - HitPoint
+  - EnemyUndead
+  - EnemyRange
   layers:
   - Default
   - TransparentFX
