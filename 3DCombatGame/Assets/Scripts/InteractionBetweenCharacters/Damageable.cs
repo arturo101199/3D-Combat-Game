@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    public int maxHitPoints;
+    public int maxHp;
     public float invulnerabiltyTime;
 
-    int currentHitPoints;
+    int currentHp;
     bool isInvulnerable;
+
     Rigidbody rb;
     float timeSinceLastHit;
 
@@ -19,7 +20,7 @@ public class Damageable : MonoBehaviour
 
     void Start()
     {
-        currentHitPoints = maxHitPoints;
+        currentHp = maxHp;
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class Damageable : MonoBehaviour
         if (isInvulnerable)
             return;
 
-        currentHitPoints -= hitPoints;
+        currentHp -= hitPoints;
         isInvulnerable = true;
 
         //Apply hit effects

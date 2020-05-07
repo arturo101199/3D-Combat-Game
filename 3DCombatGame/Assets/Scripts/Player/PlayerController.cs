@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 
     void Update()
     {
-        Debug.Log(currentStamina.GetValue());
+        //Debug.Log(currentStamina.GetValue());
         isRunningValue.value = isRunning;
 
         animator.ResetTrigger("Attack");
