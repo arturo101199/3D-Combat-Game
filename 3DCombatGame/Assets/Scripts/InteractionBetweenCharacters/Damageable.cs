@@ -10,13 +10,8 @@ public class Damageable : MonoBehaviour
     int currentHp;
     bool isInvulnerable;
 
-    Rigidbody rb;
     float timeSinceLastHit;
 
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
 
     void Start()
     {
@@ -25,7 +20,7 @@ public class Damageable : MonoBehaviour
 
     void Update()
     {
-        print(currentHp);
+        print("HPs de " + this.gameObject.name + ": " + currentHp);
         if (isInvulnerable)
         {
             timeSinceLastHit += Time.deltaTime;

@@ -4721,7 +4721,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4113967829293540}
   - component: {fileID: 114026583668987328}
-  m_Layer: 0
+  - component: {fileID: 557844854871387414}
+  m_Layer: 13
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4780,6 +4781,23 @@ MonoBehaviour:
   DeactivateObjectsAfterCollision:
   - {fileID: 0}
   HUE: -1
+--- !u!114 &557844854871387414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381550762275300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93112816586bba246afcfc33104fadd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableTime: 4
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 2048
+  damage: 1
 --- !u!1 &1402044057928834
 GameObject:
   m_ObjectHideFlags: 0
@@ -18612,7 +18630,7 @@ GameObject:
   - component: {fileID: 5380499137083131631}
   - component: {fileID: 5264482518623709557}
   - component: {fileID: 3915050211541751984}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18705,7 +18723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93112816586bba246afcfc33104fadd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableTime: 4
+  enableTime: 0
   targetLayers:
     serializedVersion: 2
     m_Bits: 2048

@@ -108,9 +108,9 @@ public class MeleeWeapon : MonoBehaviour
             {
                 other.GetComponent<Damageable>().ApplyDamage(hitData);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                print("Missing: Damageable");
+                print(ex.Message);
             }
             return;
         }

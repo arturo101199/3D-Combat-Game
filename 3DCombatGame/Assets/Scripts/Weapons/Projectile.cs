@@ -19,17 +19,41 @@ public class Projectile : MonoBehaviour
     {
         if ((targetLayers.value & (1 << collision.gameObject.layer)) != 0)
         {
-            collider.enabled = false;
-            Invoke("enableCollider", enableTime);
-            print("Orbshot hit");
+            if (collider != null) 
+            { 
+                collider.enabled = false;
+                Invoke("enableCollider", enableTime);
+            }
             HitData hitData = new HitData(damage, Vector3.zero, true, false);
             try
             {
                 collision.collider.GetComponent<Damageable>().ApplyDamage(hitData);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-                print("Missing: Damageable");
+                print(ex.Message);
+            }
+            return;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if ((targetLayers.value & (1 << collision.gameObject.layer)) != 0)
+        {
+            if (collider != null)
+            {
+                collider.enabled = false;
+                Invoke("enableCollider", enableTime);
+            }
+            HitData hitData = new HitData(damage, Vector3.zero, true, false);
+            try
+            {
+                collision.GetComponent<Damageable>().ApplyDamage(hitData);
+            }
+            catch (System.Exception ex)
+            {
+                print(ex.Message);
             }
             return;
         }
