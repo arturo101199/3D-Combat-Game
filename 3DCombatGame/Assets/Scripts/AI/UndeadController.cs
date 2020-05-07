@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class UndeadController : MonoBehaviour
+public class UndeadController : MonoBehaviour, IEffectWhenDamaged
 {
     public float maxHealth = 100f;
     public EnemyHealthBarManager HealthBarManager;
@@ -21,8 +21,6 @@ public class UndeadController : MonoBehaviour
     public bool following;
     public bool chasing;
 
-    public GameObject ChaseArea;
-
     Transform target;
     NavMeshAgent agent;
     NavMeshObstacle obstacle;
@@ -30,13 +28,16 @@ public class UndeadController : MonoBehaviour
 
     MeleeWeapon weapon;
 
+    ChaseTrigger chaseTrigger;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         animator = GetComponent<Animator>();
         weapon = GetComponentInChildren<MeleeWeapon>();
+        chaseTrigger = GameObject.Find("GameManager").GetComponent<ChaseTrigger>();
 
         weapon.SetOwner(this.gameObject);
 
@@ -55,7 +56,7 @@ public class UndeadController : MonoBehaviour
         if(distance <= viewRadius || chasing)
         {
             if (!chasing)
-                createChaseArea();
+                chaseTrigger.createChaseArea(target);
             following = true;
             agent.speed = 2f;
             //Mirar al jugador (si no está atacando)
@@ -81,15 +82,13 @@ public class UndeadController : MonoBehaviour
         else
         {
             following = false;
-            agent.speed = 1f;           
-            
+            agent.speed = 1f;
+            if (chaseTrigger.InChaseArea(this.transform.position))
+            {
+                chasing = true;
+                chaseTrigger.InsertInList(this.GetComponent<Collider>());
+            }
         }
-    }
-
-    void createChaseArea()
-    {
-        Instantiate(ChaseArea, new Vector3(target.position.x, target.position.y, target.position.z), Quaternion.identity);
-        Debug.Log("ZONA CREADA");
     }
 
     void FaceTarget()
@@ -135,5 +134,15 @@ public class UndeadController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, viewRadius);
+    }
+
+    public void WhenDamaged(Vector3 direction)
+    {
+        if (direction != Vector3.zero)
+        {
+            //Animacion de recibir daño
+        }
+
+        throw new System.NotImplementedException();
     }
 }

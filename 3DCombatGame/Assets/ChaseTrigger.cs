@@ -1,53 +1,89 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ChaseTrigger : MonoBehaviour
 {
-
+    bool isCreated;
+    public int ChaseAreaSize = 10;
+    public TransformValue playerPos;
+    Vector3 myTarget;
     public List<GameObject> enemies = new List<GameObject>();
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag("EnemyUndead"))
+        if (isCreated)
         {
-            UndeadController undead = other.GetComponent<UndeadController>();
-            undead.chasing = true;
-            enemies.Add(other.gameObject);
-        }
-        else if (other.CompareTag("EnemyRange")) //Mirar por qué esto no funciona
-        {
-            Debug.Log("AQUI HAY ALGO");
-            ShooterController range = other.GetComponentInParent<ShooterController>();
-            range.chasing = true;
-            enemies.Add(other.GetComponentInParent<GameObject>());
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            foreach(GameObject enemy in enemies)
+            if(Vector3.Distance(playerPos.GetValue().position, myTarget) > ChaseAreaSize)
             {
-                if (enemy.CompareTag("EnemyUndead"))
-                {
-                    UndeadController undead = enemy.GetComponent<UndeadController>();
-                    undead.chasing = false;
-                }
-                else if (enemy.CompareTag("EnemyRange"))
-                {
-                    ShooterController range = other.GetComponent<ShooterController>();
-                    range.chasing = false;
-                }
+                DesactivateChaseArea();
             }
-            enemies.Clear();
-            Invoke("DestroyTrigger", 0.5f);
         }
     }
 
-    void DestroyTrigger()
+    public void createChaseArea(Transform target)
     {
-        Destroy(this.gameObject);
+        Collider[] chaseArea = Physics.OverlapSphere(target.position, ChaseAreaSize);
+        foreach (Collider col in chaseArea)
+        {
+            InsertInList(col);
+        }
+        isCreated = true;
+    }
+
+    public bool InChaseArea(Vector3 pos)
+    {
+        if (isCreated)
+        {
+            float distance = Vector3.Distance(pos, myTarget);
+            if(distance <= ChaseAreaSize)
+            {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public void InsertInList(Collider col)
+    {
+        if (col.CompareTag("EnemyUndead"))
+        {
+            UndeadController undead = col.GetComponent<UndeadController>();
+            undead.chasing = true;
+            enemies.Add(col.gameObject);
+        }
+        else if (col.CompareTag("EnemyRange"))
+        {
+            ShooterController range = col.GetComponent<ShooterController>();
+            range.chasing = true;
+            enemies.Add(col.gameObject);
+        }
+    }
+
+    void DesactivateChaseArea()
+    {
+        foreach (GameObject GO in enemies)
+        {
+            if (GO.CompareTag("EnemyUndead"))
+            {
+                UndeadController undead = GO.GetComponent<UndeadController>();
+                undead.chasing = false;
+            }
+            else if (GO.CompareTag("EnemyRange"))
+            {
+                ShooterController range = GO.GetComponent<ShooterController>();
+                range.chasing = false;
+            }
+        }
+        enemies.Clear();
+        isCreated = false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(myTarget, ChaseAreaSize);
     }
 }

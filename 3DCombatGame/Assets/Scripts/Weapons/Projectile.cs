@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public float enableTime;
     public LayerMask targetLayers;
     public int damage;
 
-    SphereCollider collider;
+    Collider collider;
 
     private void Awake()
     {
-        collider = GetComponent<SphereCollider>();
+        collider = GetComponent<Collider>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
         if ((targetLayers.value & (1 << collision.gameObject.layer)) != 0)
         {
             collider.enabled = false;
-            Invoke("enableCollider", 4);
+            Invoke("enableCollider", enableTime);
             print("Orbshot hit");
             HitData hitData = new HitData(damage, Vector3.zero, true, false);
             try

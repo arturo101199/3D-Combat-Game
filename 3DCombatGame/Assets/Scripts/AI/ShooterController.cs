@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShooterController : MonoBehaviour
+public class ShooterController : MonoBehaviour, IEffectWhenDamaged
 {
 
     public float viewRadius = 5f;
@@ -18,20 +18,23 @@ public class ShooterController : MonoBehaviour
     public bool following;
     public bool chasing;
 
-    public GameObject ChaseArea;
-
     Transform target;
     NavMeshAgent agent;
     Animator animator;
 
+    ShootAI shootAI;
+    ChaseTrigger chaseTrigger;
+
+    public Transform shootPoint;
+
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
-        //shootPoint.SetOwner(this.gameObject);
+        shootAI = GetComponentInChildren<ShootAI>();
+        chaseTrigger = GameObject.Find("GameManager").GetComponent<ChaseTrigger>();
     }
 
     // Update is called once per frame
@@ -41,14 +44,17 @@ public class ShooterController : MonoBehaviour
 
         distance = Vector3.Distance(target.position, transform.position); //Poco eficiente.
 
-        //animator.SetFloat("undeadSpeed", agent.velocity.magnitude/agent.speed);
-
         if(distance <= viewRadius || chasing)
         {
+            if (!chasing)
+                chaseTrigger.createChaseArea(target);
             //Iniciamos persecución
             following = true;
+            agent.speed = 2f;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
+            currentSpeed = Mathf.Lerp(currentSpeed, agent.speed, Time.deltaTime * 1.5f);
+            animator.SetFloat("rangeSpeed", currentSpeed);
             //Detectar obstaculos entre el enemigo y el jugador
             //DetectWallBetweenPlayer();
             if (!attacking)
@@ -65,67 +71,23 @@ public class ShooterController : MonoBehaviour
                 if (!attacking)
                     agent.SetDestination(target.position);
             }
-            //currentSpeed = agent.velocity.magnitude;
+            currentSpeed = agent.velocity.magnitude;
         }
         else
         {
             following = false;
-            //currentSpeed = Mathf.Lerp(currentSpeed, 0f, Time.deltaTime * 1.5f);
-            //animator.SetFloat("undeadSpeed", currentSpeed/agent.speed);
+            agent.speed = 1f;
+            if (chaseTrigger.InChaseArea(this.transform.position))
+            {
+                chasing = true;
+                chaseTrigger.InsertInList(this.GetComponent<Collider>());
+            }
         }
     }
-
-    /*
-    IEnumerator ShootProjectile()
-    {
-        // Short delay added before Projectile is thrown
-        yield return new WaitForSeconds(0.1f);
-
-        //Instance prefab from object pool
-        Transform Projectile = objectPool.SpawnObject("Bullet", shootPoint.position, Quaternion.identity).GetComponent<Transform>();
-
-        // Move projectile to the position of throwing object + add some offset if needed.
-        Projectile.position = shootPoint.position;
-
-        // Calculate distance to target
-        //float target_Distance = Vector3.Distance(Projectile.position, target.position);
-
-        // Calculate the velocity needed to throw the object to the target at specified angle.
-        float projectile_Velocity = distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
-
-        // Extract the X  Y componenent of the velocity
-        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
-        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-
-        // Calculate flight time.
-        float flightDuration = distance / Vx;
-
-        // Rotate projectile to face the target.
-        Projectile.rotation = Quaternion.LookRotation(target.position - Projectile.position);
-
-        float elapse_time = 0;
-
-        while (elapse_time < flightDuration)
-        {
-            Projectile.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
-
-            elapse_time += Time.deltaTime;
-
-            yield return null;
-        }
-
-        //Desintegrate projectile
-        Projectile.GetComponent<Bullet>().Desintegrate();
-
-        //Shoot again
-        StartCoroutine(ShootProjectile());
-
-    }
-    */
 
     void FaceTarget()
     {
-        if (!attacking)
+        if (!attacking || following)
         {
             Vector3 direction = (target.position - transform.position).normalized;
 
@@ -134,7 +96,7 @@ public class ShooterController : MonoBehaviour
         }
     }
 
-    /*
+    
     void DetectWallBetweenPlayer()
     {
         RaycastHit shootHit;
@@ -146,12 +108,12 @@ public class ShooterController : MonoBehaviour
             if (shootHit.collider.CompareTag("Player"))
             {
                 Debug.Log("HOLA");
-                agent.stoppingDistance = 16f;
+                agent.stoppingDistance = 12f;
             }
             else if(shootHit.collider.CompareTag("Enemy"))
             {
                 Debug.Log("HAY UN ENEMIGO DELANTE");
-                agent.stoppingDistance = 16f;
+                agent.stoppingDistance = 12f;
             }
             else
             {
@@ -160,17 +122,13 @@ public class ShooterController : MonoBehaviour
             }
         }
     }
-    */
+    
 
-    public void BeginAttack()
+    public void shoot()
     {
-        //weapon.BeginAttack();
+        shootAI.ShootProjectile();
     }
 
-    public void EndAttack()
-    {
-        //weapon.EndAttack();
-    }
 
     public void animationStarted()
     {
@@ -187,7 +145,17 @@ public class ShooterController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, viewRadius);
+    }
+
+    public void WhenDamaged(Vector3 direction)
+    {
+        if (direction != Vector3.zero)
+        {
+            //Animacion de recibir daño
+        }
+
+        throw new System.NotImplementedException();
     }
 }
