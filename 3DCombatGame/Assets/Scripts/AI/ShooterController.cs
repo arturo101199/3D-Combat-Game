@@ -22,14 +22,14 @@ public class ShooterController : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent;
-    //Animator animator;
+    Animator animator;
 
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         //shootPoint.SetOwner(this.gameObject);
     }
@@ -55,13 +55,14 @@ public class ShooterController : MonoBehaviour
                 agent.enabled = true;
             if (distance <= agent.stoppingDistance)
             {
-                //Activar animación de ataque
-                //Realizar ataque a distancia
+                //Realizar ataque
+                animator.SetBool("attackPlayer", true);
             }
             else
             {
                 //Desactivar animación de ataque
-                if(!attacking)
+                animator.SetBool("attackPlayer", false);
+                if (!attacking)
                     agent.SetDestination(target.position);
             }
             //currentSpeed = agent.velocity.magnitude;

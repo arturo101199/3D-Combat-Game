@@ -17,9 +17,10 @@ public class ChaseTrigger : MonoBehaviour
         }
         else if (other.CompareTag("EnemyRange")) //Mirar por qué esto no funciona
         {
-            ShooterController range = other.GetComponent<ShooterController>();
+            Debug.Log("AQUI HAY ALGO");
+            ShooterController range = other.GetComponentInParent<ShooterController>();
             range.chasing = true;
-            enemies.Add(other.gameObject);
+            enemies.Add(other.GetComponentInParent<GameObject>());
         }
     }
 
