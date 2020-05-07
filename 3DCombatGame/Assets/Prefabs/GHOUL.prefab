@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4942926957099707716}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3922940953207038362}
   - component: {fileID: 1950170968748706047}
   - component: {fileID: 6734037592750522758}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 7494971955054147348}
   - component: {fileID: 2874791150995471588}
   - component: {fileID: 709125249}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GHOUL
   m_TagString: EnemyRange
   m_Icon: {fileID: 0}
@@ -1361,7 +1361,7 @@ Transform:
   m_GameObject: {fileID: 8795562709507602150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.464872, y: 0.25, z: -14.70068}
-  m_LocalScale: {x: 0.63907, y: 0.63907, z: 0.63907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8795562709507173060}
   - {fileID: 8795562709507173058}
