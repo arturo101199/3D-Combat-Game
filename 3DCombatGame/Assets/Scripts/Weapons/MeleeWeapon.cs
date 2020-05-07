@@ -103,7 +103,15 @@ public class MeleeWeapon : MonoBehaviour
         if ((targetLayers.value & (1 << other.gameObject.layer)) != 0)
         {
             Vector3 hitDirection = (other.transform.position - owner.transform.position).normalized;
-            other.GetComponent<Damageable>().ApplyDamage(damage, hitDirection);
+            HitData hitData = new HitData(damage, hitDirection, true, false);
+            try
+            {
+                other.GetComponent<Damageable>().ApplyDamage(hitData);
+            }
+            catch (Exception)
+            {
+                print("Missing: Damageable");
+            }
             return;
         }
 

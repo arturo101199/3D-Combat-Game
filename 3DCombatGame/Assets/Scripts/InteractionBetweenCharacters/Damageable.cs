@@ -25,6 +25,7 @@ public class Damageable : MonoBehaviour
 
     void Update()
     {
+        print(currentHp);
         if (isInvulnerable)
         {
             timeSinceLastHit += Time.deltaTime;
@@ -36,19 +37,21 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    public void ApplyDamage(int hitPoints, Vector3 hitDirection)
+    public void ApplyDamage(HitData hitData)
     {
-        if (isInvulnerable)
+        if (isInvulnerable && !hitData.ignoreInvulnerable)
             return;
 
-        currentHp -= hitPoints;
-        isInvulnerable = true;
+        currentHp -= hitData.hitPoints;
+
+        if(hitData.makeInvulnerable)
+            isInvulnerable = true;
 
         //Apply hit effects
         IEffectWhenDamaged obj = GetComponent<IEffectWhenDamaged>();
         if(obj != null)
         {
-            obj.WhenDamaged(hitDirection);
+            obj.WhenDamaged(hitData.hitDirection);
         }
     }
 
