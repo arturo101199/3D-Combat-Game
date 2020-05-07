@@ -987,12 +987,12 @@ PrefabInstance:
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -1028,6 +1028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UndeadEnemy 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068545810386119412, guid: e8610e40590ea14448aec97987e49b68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9068545810386260148, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -2331,7 +2336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &637196815
 Transform:
   m_ObjectHideFlags: 0
@@ -3022,7 +3027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &906650789
 Transform:
   m_ObjectHideFlags: 0
@@ -3676,12 +3681,12 @@ PrefabInstance:
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -3717,6 +3722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UndeadEnemy 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068545810386119412, guid: e8610e40590ea14448aec97987e49b68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9068545810386260148, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -5469,12 +5479,12 @@ PrefabInstance:
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -5510,6 +5520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UndeadEnemy 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068545810386119412, guid: e8610e40590ea14448aec97987e49b68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9068545810386260148, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
@@ -7013,12 +7028,12 @@ PrefabInstance:
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2298520890989957120, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2854157099957626826, guid: e8610e40590ea14448aec97987e49b68,
         type: 3}

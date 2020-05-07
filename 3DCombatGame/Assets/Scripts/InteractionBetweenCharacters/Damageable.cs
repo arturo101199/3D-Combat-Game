@@ -20,7 +20,6 @@ public class Damageable : MonoBehaviour
 
     void Update()
     {
-        print("HPs de " + this.gameObject.name + ": " + currentHp);
         if (isInvulnerable)
         {
             timeSinceLastHit += Time.deltaTime;
@@ -48,6 +47,11 @@ public class Damageable : MonoBehaviour
         {
             obj.WhenDamaged(hitData.hitDirection);
         }
+    }
+
+    public int getHp()
+    {
+        return currentHp;
     }
 
 }

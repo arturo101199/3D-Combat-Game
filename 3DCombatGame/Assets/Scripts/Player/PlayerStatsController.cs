@@ -9,6 +9,7 @@ public class PlayerStatsController : MonoBehaviour
     public Slider staminaSlider;
 
     public FloatValue stamina;
+    Damageable playerHp;
 
     public void SetMaxHealth(float health)
     {
@@ -41,11 +42,17 @@ public class PlayerStatsController : MonoBehaviour
     {
         GameObject player = GameObject.Find("Player");
         Stamina staminaManager = player.GetComponent<Stamina>();
+        playerHp = player.GetComponent<Damageable>();
         SetMaxStamina(staminaManager.maxStamina);
     }
 
     private void Update()
     {
         SetStamina(stamina.GetValue());
+        
+        //Con playerHP.getHp() tienes la vida actual
+        print(playerHp.getHp());
+        //Con playerHp.maxHp() tienes la vida maxima
+        print(playerHp.maxHp);
     }
 }
