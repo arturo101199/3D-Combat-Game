@@ -1912,6 +1912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 15
   smoothRotation: 5
+  chaseSpeed: 4
   playerPos: {fileID: 11400000, guid: 37c75b4eba17a2146b74f1bbae536539, type: 2}
   attacking: 0
   following: 0

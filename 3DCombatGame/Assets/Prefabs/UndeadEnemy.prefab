@@ -5108,10 +5108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324927840547aea4fa7c44d65da0bbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   HealthBarManager: {fileID: 3680537086672726512}
   viewRadius: 10
   smoothRotation: 5
+  chaseSpeed: 3
   playerPos: {fileID: 11400000, guid: 4be2929a4e3e64c439bf7b0afa13216e, type: 2}
   following: 0
   chasing: 0
