@@ -10,6 +10,7 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
 
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
+    public float chaseSpeed;
 
     public TransformValue playerPos;
 
@@ -57,7 +58,7 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
             if (!chasing)
                 chaseTrigger.createChaseArea(target);
             following = true;
-            agent.speed = 2f;
+            agent.speed = chaseSpeed;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
             currentSpeed = Mathf.Lerp(currentSpeed, agent.speed, Time.deltaTime * 1.5f);
@@ -90,6 +91,10 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
         }
 
         HealthBarManager.SetHealth(entityHP.getHp());
+        if(entityHP.getHp() <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     void FaceTarget()

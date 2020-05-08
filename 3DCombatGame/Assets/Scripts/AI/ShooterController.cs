@@ -8,6 +8,7 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
 
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
+    public float chaseSpeed;
     float distance;
 
     public TransformValue playerPos;
@@ -56,7 +57,7 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
                 chaseTrigger.createChaseArea(target);
             //Iniciamos persecución
             following = true;
-            agent.speed = 2f;
+            agent.speed = chaseSpeed;
             //Mirar al jugador (si no está atacando)
             FaceTarget();
             currentSpeed = Mathf.Lerp(currentSpeed, agent.speed, Time.deltaTime * 1.5f);
@@ -91,6 +92,10 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
         }
 
         HealthBarManager.SetHealth(entityHP.getHp());
+        if (entityHP.getHp() <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     void FaceTarget()
