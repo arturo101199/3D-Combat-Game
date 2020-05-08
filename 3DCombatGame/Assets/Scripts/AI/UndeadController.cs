@@ -5,9 +5,8 @@ using UnityEngine.AI;
 
 public class UndeadController : MonoBehaviour, IEffectWhenDamaged
 {
-    public float maxHealth = 100f;
     public EnemyHealthBarManager HealthBarManager;
-    private float curretnHealth;
+    Damageable entityHP;
 
     public float viewRadius = 5f;
     public float smoothRotation = 5f;
@@ -42,8 +41,8 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
         weapon.SetOwner(this.gameObject);
 
         //Inicializa la vida y establece la barra
-        curretnHealth = maxHealth;
-        HealthBarManager.SetMaxHealth(maxHealth);
+        entityHP = gameObject.GetComponent<Damageable>();
+        HealthBarManager.SetMaxHealth(entityHP.maxHp);
     }
 
     // Update is called once per frame
@@ -89,6 +88,8 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
                 chaseTrigger.InsertInList(this.GetComponent<Collider>());
             }
         }
+
+        HealthBarManager.SetHealth(entityHP.getHp());
     }
 
     void FaceTarget()

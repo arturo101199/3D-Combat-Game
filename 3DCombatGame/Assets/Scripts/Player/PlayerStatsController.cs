@@ -44,15 +44,14 @@ public class PlayerStatsController : MonoBehaviour
         Stamina staminaManager = player.GetComponent<Stamina>();
         playerHp = player.GetComponent<Damageable>();
         SetMaxStamina(staminaManager.maxStamina);
+        SetMaxHealth(playerHp.maxHp);
     }
 
     private void Update()
     {
         SetStamina(stamina.GetValue());
-        
+        SetHealth(playerHp.getHp());
         //Con playerHP.getHp() tienes la vida actual
-        print(playerHp.getHp());
         //Con playerHp.maxHp() tienes la vida maxima
-        print(playerHp.maxHp);
     }
 }

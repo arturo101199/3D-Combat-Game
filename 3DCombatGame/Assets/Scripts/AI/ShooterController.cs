@@ -27,6 +27,9 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
 
     public Transform shootPoint;
 
+    public EnemyHealthBarManager HealthBarManager;
+    Damageable entityHP;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -35,6 +38,9 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
         animator = GetComponent<Animator>();
         shootAI = GetComponentInChildren<ShootAI>();
         chaseTrigger = GameObject.Find("GameManager").GetComponent<ChaseTrigger>();
+
+        entityHP = gameObject.GetComponent<Damageable>();
+        HealthBarManager.SetMaxHealth(entityHP.maxHp);
     }
 
     // Update is called once per frame
@@ -83,6 +89,8 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
                 chaseTrigger.InsertInList(this.GetComponent<Collider>());
             }
         }
+
+        HealthBarManager.SetHealth(entityHP.getHp());
     }
 
     void FaceTarget()
