@@ -3579,7 +3579,7 @@ GameObject:
   - component: {fileID: 433082071}
   - component: {fileID: 433082070}
   m_Layer: 0
-  m_Name: Bogatyri
+  m_Name: Banda Sonora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3595,7 +3595,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8b4ec3f6bacdf4340a37a39a5290d849, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6320f1800a0e57648b0e2691f5b7b621, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6334,7 +6334,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9607462, g: 1, b: 0.6556604, a: 1}
+  m_Color: {r: 0.9098039, g: 1, b: 0.8235294, a: 1}
   m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
@@ -12152,7 +12152,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9092453, g: 1, b: 0.8254717, a: 1}
+  m_Color: {r: 0.16509432, g: 1, b: 0.68089986, a: 1}
   m_Intensity: 0.8
   m_Range: 3000
   m_SpotAngle: 30
@@ -25689,6 +25689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: EffectColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148016475393876529, guid: 4dd932e4838785b4fb4fdcc34df1b6c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8233393374272468120, guid: 4dd932e4838785b4fb4fdcc34df1b6c3,
         type: 3}
