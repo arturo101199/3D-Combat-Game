@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01d29d88278f45458d99e6b5199e920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0.01
+  strength: 0.035
   useScattering: 0
   overrideScattering: 0
   overridingScattering: 0.5
@@ -272,6 +272,16 @@ PrefabInstance:
       propertyPath: ShapeModule.arc.mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d52a7fd96ca009468fec121b9b52946, type: 2}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03786a9517b604d8e930182607a128, type: 3}
 --- !u!4 &2373659798889716097 stripped
@@ -399,6 +409,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8220202, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: ce1feb6fffa39bb47819f93b27353086,
+        type: 2}
+    - target: {fileID: 8237932, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: ce1feb6fffa39bb47819f93b27353086,
+        type: 2}
     - target: {fileID: 10822010, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: m_Range
       value: 1800
@@ -449,11 +469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: LightCurve.m_Curve.Array.data[2].time
-      value: 1
+      value: 1.0023499
       objectReference: {fileID: 0}
     - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: LightCurve.m_Curve.Array.data[2].value
-      value: 0.75257874
+      value: 1.0019379
       objectReference: {fileID: 0}
     - target: {fileID: 11481542, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: LightCurve.m_Curve.Array.data[2].inWeight
@@ -499,6 +519,14 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 19946928, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: m_SortingOrder
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 19958848, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
+      propertyPath: m_SortingOrder
+      value: -11
+      objectReference: {fileID: 0}
     - target: {fileID: 1029470033101420, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -526,12 +554,17 @@ PrefabInstance:
     - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
         type: 3}
       propertyPath: EffectColor.b
-      value: 1
+      value: 0.95652175
       objectReference: {fileID: 0}
     - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
         type: 3}
       propertyPath: EffectColor.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114196630334499820, guid: 994aac8c46b05f849b78294465816eb1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 994aac8c46b05f849b78294465816eb1, type: 3}
@@ -1227,6 +1260,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03786a9517b604d8e930182607a128, type: 3}
 --- !u!4 &8112838070958527675 stripped
@@ -1909,6 +1947,11 @@ PrefabInstance:
       propertyPath: m_MotionVectors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03786a9517b604d8e930182607a128, type: 3}
 --- !u!4 &8112838070477202714 stripped
@@ -2590,6 +2633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MotionVectors
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199503414395959952, guid: 9e03786a9517b604d8e930182607a128,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e03786a9517b604d8e930182607a128, type: 3}
