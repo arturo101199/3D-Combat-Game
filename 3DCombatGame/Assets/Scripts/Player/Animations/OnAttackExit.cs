@@ -13,8 +13,11 @@ public class OnAttackExit : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(animationEvents != null)
+        if (animationEvents != null)
+        {
             animationEvents.EndCombo();
+            animationEvents.EndAttackCollision();
+        }
         else
         {
             Debug.LogWarning("Animation Event not given");

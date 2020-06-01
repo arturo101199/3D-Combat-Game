@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
     bool inDash;
     bool isRunning;
     bool inBetweenCombos;
+    bool hit;
     //float timer;
     
     [Header("External References")]
@@ -59,20 +60,23 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
         animator.SetFloat("StateTime", Mathf.Repeat(animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 1f));
 
         camDirection();
+        if (!hit)
+        {
+            Run();
 
-        Run();
+            Move();
 
-        Move();
+            SetGravity();
 
-        SetGravity();
+            //Jump();
 
-        //Jump();
+            Dash();
 
-        Dash();
+            Attack();
 
-        Attack();
+            charctrl.Move(movement * Time.deltaTime);
 
-        charctrl.Move(movement * Time.deltaTime);
+        }
     }
 
     Vector3 previousMovement;
@@ -209,7 +213,7 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
 
     public void WhenDamaged(Vector3 direction)
     {
-        throw new NotImplementedException();
+        animator.SetBool("Hit", true);
     }
 
     #region AnimationEvents
@@ -243,7 +247,18 @@ public class PlayerController : MonoBehaviour, IEffectWhenDamaged
     {
         inDash = false;
     }
-    
+
+    public void EndHit()
+    {
+        hit = false;
+        animator.SetBool("Hit", false);
+    }
+
+    public void BeginHit()
+    {
+        hit = true;
+    }
+
     public void InBetweenCombos()
     {
         inBetweenCombos = true;

@@ -41,6 +41,16 @@ public class AnimationEvents : MonoBehaviour
         playerController.EndDash();
     }
 
+    public void EndHit()
+    {
+        playerController.EndHit();
+    }
+
+    public void BeginHit()
+    {
+        playerController.BeginHit();
+    }
+
     public void InBetweenCombos()
     {
         playerController.InBetweenCombos();
