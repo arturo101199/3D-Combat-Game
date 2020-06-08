@@ -136,6 +136,17 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
         obstacle.enabled = false;
     }
 
+    public void startHitAnim()
+    {
+        agent.enabled = false;
+    }
+
+    public void endHit()
+    {
+        animator.SetBool("getHit", false);
+        agent.enabled = true;
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -147,6 +158,7 @@ public class UndeadController : MonoBehaviour, IEffectWhenDamaged
         if (direction != Vector3.zero)
         {
             //Animacion de recibir daño
+            animator.SetBool("getHit", true);
         }
 
         throw new System.NotImplementedException();

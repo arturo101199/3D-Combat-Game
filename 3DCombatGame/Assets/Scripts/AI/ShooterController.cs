@@ -155,6 +155,11 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
         attacking = false;
     }
 
+    public void endHit()
+    {
+        animator.SetBool("getHit", false);
+    }
+
 
     void OnDrawGizmosSelected()
     {
@@ -167,6 +172,7 @@ public class ShooterController : MonoBehaviour, IEffectWhenDamaged
         if (direction != Vector3.zero)
         {
             //Animacion de recibir daño
+            animator.SetBool("getHit", true);
         }
 
         throw new System.NotImplementedException();
