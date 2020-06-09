@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 669695699}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.029087128, g: 0.029898217, b: 0.029896265, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 408f04f3e554f8640a354ef93c368de2,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -4617,7 +4618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &450891768 stripped
 Transform:
@@ -7639,6 +7640,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563349715277615890, guid: eb75b6780febaeb4ea931510dcba8735,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: -1.7018272e+38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563349715277615890, guid: eb75b6780febaeb4ea931510dcba8735,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 7.35041e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563349715277615890, guid: eb75b6780febaeb4ea931510dcba8735,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.34684e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563349715277615890, guid: eb75b6780febaeb4ea931510dcba8735,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -6.216224e-28
       objectReference: {fileID: 0}
     - target: {fileID: 6187052811499227390, guid: eb75b6780febaeb4ea931510dcba8735,
         type: 3}
@@ -17696,7 +17717,7 @@ Transform:
   m_LocalScale: {x: 1254.8949, y: -86.52081, z: 634.5768}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1410877466
 PrefabInstance:
@@ -24852,7 +24873,7 @@ PrefabInstance:
     - target: {fileID: 5713861998405300161, guid: b895e7c4cd09abd46918485a580d12b5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5713861998405300161, guid: b895e7c4cd09abd46918485a580d12b5,
         type: 3}
