@@ -1816,6 +1816,8 @@ GameObject:
   - component: {fileID: 7494971955054147348}
   - component: {fileID: 2874791150995471588}
   - component: {fileID: 709125249}
+  - component: {fileID: 8027305337475249709}
+  - component: {fileID: 2288286876318294453}
   m_Layer: 11
   m_Name: GHOUL
   m_TagString: EnemyRange
@@ -1955,6 +1957,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 5
   invulnerabiltyTime: 0.25
+--- !u!82 &8027305337475249709
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795562709507602150}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ce1feb6fffa39bb47819f93b27353086,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2288286876318294453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795562709507602150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756abdb4fbed9294a92478ce0fecb1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepPitchMin: 0.6
+  stepPitchMax: 0.8
+  attackPitchMin: 0.8
+  attackPitchMax: 1
+  getHitPitchMin: 0.9
+  getHitPitchMax: 1.1
+  rollPitchMin: 1
+  rollPitchMax: 1
+  steps:
+  - {fileID: 8300000, guid: 374aa65caaabe234d974de2462c4318a, type: 3}
+  - {fileID: 8300000, guid: 16b490cfb367f50469456f577f5d2927, type: 3}
+  - {fileID: 8300000, guid: 08c321f27c69bd149aece1104508d576, type: 3}
+  - {fileID: 8300000, guid: 9b0f3251356d37f43959de10a92590b9, type: 3}
+  - {fileID: 8300000, guid: dde91c88d26e21f47abe5e9b26fd3c33, type: 3}
+  - {fileID: 8300000, guid: 303d767ecaa3b79419c1341f9140d45a, type: 3}
+  - {fileID: 8300000, guid: 88971cae9132d544998331fd2b970ee7, type: 3}
+  - {fileID: 8300000, guid: 5f44406fc13936f43b6d0cb9e35d5a54, type: 3}
+  attacks:
+  - {fileID: 8300000, guid: 34be6dee7db4aa7439629d307ebd72b9, type: 3}
+  getHits:
+  - {fileID: 8300000, guid: b14f5c7f0894124479b7f2698f0e9c67, type: 3}
+  - {fileID: 8300000, guid: 6765dee653f46764fb540f56d3a1d492, type: 3}
+  - {fileID: 8300000, guid: 6d20ebf2f4a1be9469b1f2f57e19fc39, type: 3}
+  roll:
+  - {fileID: 8300000, guid: 5bc16e99c151dd44099d196072f77dca, type: 3}
+  - {fileID: 8300000, guid: 79de256383fc3d54499e16a90fedd7e7, type: 3}
 --- !u!1 &8795562709507602152
 GameObject:
   m_ObjectHideFlags: 0

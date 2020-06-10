@@ -1,5 +1,102 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!82 &616428256922361721
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836736039436623705}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ce1feb6fffa39bb47819f93b27353086,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &6088850700104910431
 Animator:
   serializedVersion: 3
@@ -31,6 +128,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8d9783325af474f8df1c48209c3840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1860479801064286755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836736039436623705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756abdb4fbed9294a92478ce0fecb1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepPitchMin: 0.9
+  stepPitchMax: 1.1
+  attackPitchMin: 0.7
+  attackPitchMax: 0.9
+  getHitPitchMin: 0.9
+  getHitPitchMax: 1.1
+  rollPitchMin: 0.8
+  rollPitchMax: 1
+  steps:
+  - {fileID: 8300000, guid: 374aa65caaabe234d974de2462c4318a, type: 3}
+  - {fileID: 8300000, guid: 16b490cfb367f50469456f577f5d2927, type: 3}
+  - {fileID: 8300000, guid: 08c321f27c69bd149aece1104508d576, type: 3}
+  - {fileID: 8300000, guid: 9b0f3251356d37f43959de10a92590b9, type: 3}
+  - {fileID: 8300000, guid: dde91c88d26e21f47abe5e9b26fd3c33, type: 3}
+  - {fileID: 8300000, guid: 303d767ecaa3b79419c1341f9140d45a, type: 3}
+  - {fileID: 8300000, guid: 88971cae9132d544998331fd2b970ee7, type: 3}
+  - {fileID: 8300000, guid: 5f44406fc13936f43b6d0cb9e35d5a54, type: 3}
+  attacks:
+  - {fileID: 8300000, guid: bddc1df20ab9f1444bebfa94aeca5306, type: 3}
+  - {fileID: 8300000, guid: 04f46e7095d6b0542baf39244c5e52a4, type: 3}
+  - {fileID: 8300000, guid: c817cbdce838f8f41b2cba21d8ca92ec, type: 3}
+  - {fileID: 8300000, guid: 531eaa4708a964f48a9b94242a75d58b, type: 3}
+  - {fileID: 8300000, guid: 646f6236e0c22404fabe3a7c0cf432ed, type: 3}
+  - {fileID: 8300000, guid: 4f7e796b517aaf64c9e162a7b3477ad3, type: 3}
+  - {fileID: 8300000, guid: 41c47a45fd547c941bc6b9e35268d240, type: 3}
+  - {fileID: 8300000, guid: 41c47a45fd547c941bc6b9e35268d240, type: 3}
+  getHits:
+  - {fileID: 8300000, guid: 73e739a8dea1ab04285d38f0bb8858db, type: 3}
+  - {fileID: 8300000, guid: 63522aa16f8988348a61d5db7259be71, type: 3}
+  roll:
+  - {fileID: 8300000, guid: 5bc16e99c151dd44099d196072f77dca, type: 3}
+  - {fileID: 8300000, guid: 79de256383fc3d54499e16a90fedd7e7, type: 3}
 --- !u!1 &3545419703376152164
 GameObject:
   m_ObjectHideFlags: 0
